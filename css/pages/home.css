@@ -1,0 +1,137 @@
+body {
+  background: #eeeeee;
+}
+
+#navbar {
+  height: 100vh;
+  max-height: 100vh;
+  width: 250px;
+  background: #fff;
+  padding: 25px;
+  margin-right: 10px;
+}
+
+#logo {
+  max-height: 77px;
+}
+
+#nav-btn-container {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#user-action {
+  width: 100%;
+  margin-top: auto;
+}
+
+.nav-btn {
+  width: 100%;
+  min-height: 45px;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  padding: 0 15px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  transition: background 0.5s, opacity 0.3s;
+}
+
+.nav-btn img {
+  max-height: 20px;
+  margin-right: 10px;
+}
+
+.nav-btn img[src="/assets/icons/user-profile.svg"] {
+  max-height: 30px;
+}
+
+.nav-btn #user-info {
+  width: 100%;
+}
+
+.nav-btn #user-info > p {
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+}
+
+.nav-btn #user-info > p:first-child {
+  font-size: 0.8rem;
+}
+
+.nav-btn #user-info > p:last-child {
+  font-size: 0.6rem;
+}
+
+.nav-btn:not(.nav-btn-active):hover {
+  background: #eeeeee;
+}
+
+.nav-btn-active {
+  background: #cfffe2;
+}
+
+#logout-btn:hover {
+  background: #ffd4d5;
+  color: #ff0004;
+}
+
+#main-page-container {
+  width: 100%;
+}
+
+#top-panel {
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  border-radius: 0 0 0 10px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+#line-container {
+  width: fit-content;
+  margin-right: 10px;
+}
+
+.v-line {
+  width: 4px;
+  height: 60px;
+  margin: 0 10px;
+  background: #1dbc5d;
+  margin: 0;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+#text-container > p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+#text-container > div {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 3px;
+  background: #1dbc5d;
+  margin: 5px 0;
+  border-radius: 10px;
+}
+
+#date-container > p {
+  margin: 0px;
+  font-size: 0.8rem;
+  text-align: end;
+}
+
+#main-page-container > iframe {
+  height: 100%;
+  background: #fff;
+  margin: 0 10px 10px 0;
+  border-radius: 10px;
+  padding: 15px;
+}
