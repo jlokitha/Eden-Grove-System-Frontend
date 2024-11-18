@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eden Grove</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/pages/home.css" />
+  </head>
+  <body class="d-flex">
+    <section class="d-flex flex-column align-items-center" id="navbar">
+      <div id="logo-container">
+        <img src="/assets/icons/logo.svg" alt="Eden Grove logo" id="logo" />
+      </div>
+
+      <div id="nav-btn-container">
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          page="/component/embedded-pages/pages/dashboard.html"
+        >
+          <img
+            src="/assets/icons/dashboard-black.svg"
+            alt="Dashboard button icon in black color"
+          />
+          Dashboard
+        </button>
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          page="/component/embedded-pages/pages/staff.html"
+        >
+          <img
+            src="/assets/icons/staff-black.svg"
+            alt="Staff button icon in black color"
+          />
+          Staff
+        </button>
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          page="/component/embedded-pages/pages/field.html"
+        >
+          <img
+            src="/assets/icons/field-black.svg"
+            alt="Field button icon in black color"
+          />
+          Field
+        </button>
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          page="/component/embedded-pages/pages/crop.html"
+        >
+          <img
+            src="/assets/icons/crop-black.svg"
+            alt="Crop button icon in black color"
+          />
+          Crop
+        </button>
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          page="/component/embedded-pages/pages/monitoringLog.html"
+        >
+          <img
+            src="/assets/icons/monitoring-log-black.svg"
+            alt="Monitoring log button icon in black color"
+          />
+          Monitoring Log
+        </button>
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          page="/component/embedded-pages/pages/vehicle.html"
+        >
+          <img
+            src="/assets/icons/vehicle-black-svg.svg"
+            alt="Vehicle button icon in black color"
+          />
+          Vehicle
+        </button>
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          page="/component/embedded-pages/pages/equipment.html"
+        >
+          <img
+            src="/assets/icons/equipment-black.svg"
+            alt="Equipment button icon in black color"
+          />
+          Equipment
+        </button>
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          page="/component/embedded-pages/pages/user.html"
+        >
+          <img
+            src="/assets/icons/user-black.svg"
+            alt="User button icon in black color"
+          />
+          User
+        </button>
+      </div>
+
+      <div id="user-action">
+        <button class="nav-btn d-flex justify-content-left align-items-center">
+          <img
+            src="/assets/icons/user-profile.svg"
+            alt="User profile button icon in black color"
+          />
+          <div id="user-info">
+            <p>John Doe</p>
+            <p>MANAGER</p>
+          </div>
+        </button>
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          id="logout-btn"
+        >
+          <img
+            src="/assets/icons/logout-black.svg"
+            alt="Logout button icon in black color"
+            id="logout-icon"
+          />
+          Logout
+        </button>
+      </div>
+    </section>
+
+    <section class="d-flex flex-column" id="main-page-container">
+      <div
+        class="d-flex justify-content-between align-items-center"
+        id="top-panel"
+      >
+        <div class="d-flex">
+          <div class="d-flex" id="line-container">
+            <div class="v-line"></div>
+            <div class="v-line"></div>
+          </div>
+          <div id="text-container">
+            <p>Welcome Back to Eden Grove</p>
+            <div></div>
+            <p>John Doe</p>
+          </div>
+        </div>
+        <div id="date-container">
+          <p id="date"></p>
+          <p id="time"></p>
+        </div>
+      </div>
+
+      <iframe
+        src="/component/embedded-pages/pages/dashboard.html"
+        frameborder="0"
+        id="embedded-page"
+      ></iframe>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/controller/pages/HomeController.js"></script>
+  </body>
+</html>

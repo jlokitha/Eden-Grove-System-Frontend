@@ -35,7 +35,7 @@ $(document).ready(function () {
 
         console.log(signInData);
 
-        window.location.href = "/index.html";
+        window.location.href = "/pages/dashboard.html";
       } else {
         $('input[placeholder="Password"]')[0].setCustomValidity(
           "Password must be at least 6 characters long, and contain at least one letter, one number, and one symbol. Only letters, numbers, and symbols are allowed."
