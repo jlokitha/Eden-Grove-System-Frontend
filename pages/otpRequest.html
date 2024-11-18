@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Eden Grove</title>
+    <title>Request OTP</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/pages/signUp.css" />
+    <link rel="stylesheet" href="/css/pages/otpRequest.css" />
   </head>
   <body class="d-flex justify-content-center align-items-center">
     <div class="d-flex" id="form-container">
@@ -29,8 +29,11 @@
         />
 
         <div id="title-container">
-          <h1>Sign Up Here!</h1>
-          <p>Welcome to Eden Grove - Let’s create your account</p>
+          <h1>OTP Request</h1>
+          <p>
+            Please enter the email address registered in the<br />
+            system to receive an OTP.
+          </p>
         </div>
 
         <form>
@@ -40,30 +43,35 @@
               type="email"
               placeholder="Email"
               required
+              oninvalid="this.setCustomValidity('Please enter a valid email address (e.g., example@domain.com).')"
               oninput="this.setCustomValidity('')"
             />
           </div>
-          <div class="input d-flex align-items-center">
-            <img src="/assets/icons/password.svg" alt="password icon" />
-            <div class="d-flex justify-content-center align-items-center">
-              <input
-                type="password"
-                placeholder="Password"
-                required
-                oninput="this.setCustomValidity('')"
-              />
-              <img
-                class="visibility-toggle"
-                src="/assets/icons/eye-close.svg"
-                alt="eye close icon"
-              />
-            </div>
-          </div>
 
-          <div class="d-flex justify-content-between" id="button-container">
-            <button type="submit">
+          <div
+            class="d-flex justify-content-end align-items-center"
+            id="button-container"
+          >
+            <a
+              href="/index.html"
+              class="d-flex justify-content-center align-items-center button"
+              id="back-button"
+            >
               <div>
-                Sign Up
+                <img
+                  src="/assets/icons/btn-arrow-left.svg"
+                  alt="arrow to left icon"
+                />
+                Back
+              </div>
+            </a>
+            <button
+              type="submit"
+              class="d-flex justify-content-center align-items-center button"
+              id="success-btn"
+            >
+              <div>
+                Send Otp
                 <img
                   src="/assets/icons/btn-arrow-right.svg"
                   alt="arrow to right icon"
@@ -72,8 +80,6 @@
             </button>
           </div>
         </form>
-
-        <p>Already have an account <a href="/index.html">Sign in</a></p>
       </div>
     </div>
 
@@ -87,6 +93,9 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/controller/pages/SignUpController.js"></script>
+    <script
+      type="module"
+      src="/controller/pages/OtpRequestController.js"
+    ></script>
   </body>
 </html>

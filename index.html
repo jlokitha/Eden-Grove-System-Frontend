@@ -33,34 +33,52 @@
           <p>Welcome back to Eden Grove!</p>
         </div>
 
-        <div class="input d-flex align-items-center">
-          <img src="/assets/icons/username.svg" alt="profile icon" />
-          <input type="text" placeholder="Email" />
-        </div>
-        <div class="input d-flex align-items-center">
-          <img src="/assets/icons/password.svg" alt="password icon" />
-          <div class="d-flex justify-content-center align-items-center">
-            <input type="password" placeholder="Password" />
-            <img
-              class="visibility-toggle"
-              src="/assets/icons/eye-close.svg"
-              alt="eye close icon"
+        <form>
+          <div class="input d-flex align-items-center">
+            <img src="/assets/icons/username.svg" alt="profile icon" />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              oninput="this.setCustomValidity('')"
             />
           </div>
-        </div>
-
-        <div
-          class="d-flex justify-content-between align-items-center"
-          id="button-container"
-        >
-          <a href="">Forgot Your Password?</a>
-          <button class="d-flex justify-content-center align-items-center">
-            <div>
-              Sign In
-              <img src="/assets/icons/btn-arrow.svg" alt="arrow icon" />
+          <div class="input d-flex align-items-center">
+            <img src="/assets/icons/password.svg" alt="password icon" />
+            <div class="d-flex justify-content-center align-items-center">
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                oninput="this.setCustomValidity('')"
+              />
+              <img
+                class="visibility-toggle"
+                src="/assets/icons/eye-close.svg"
+                alt="eye close icon"
+              />
             </div>
-          </button>
-        </div>
+          </div>
+
+          <div
+            class="d-flex justify-content-between align-items-center"
+            id="button-container"
+          >
+            <a href="/pages/otpRequest.html">Forgot Your Password?</a>
+            <button
+              type="submit"
+              class="d-flex justify-content-center align-items-center"
+            >
+              <div>
+                Sign In
+                <img
+                  src="/assets/icons/btn-arrow-right.svg"
+                  alt="arrow to right icon"
+                />
+              </div>
+            </button>
+          </div>
+        </form>
 
         <p>
           Don’t have an account? Create your account

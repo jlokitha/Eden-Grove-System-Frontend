@@ -18,37 +18,46 @@ $(document).ready(function () {
   });
 
   $("form").on("submit", (e) => {
-    console.log("submit");
-
     e.preventDefault();
 
-    const email = $('input[type="email"]').val();
-    const password = $('input[placeholder="Password"]').val();
-    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    const password = $('input[placeholder="New Password"]').val();
+    const confirmPassword = $('input[placeholder="Confirm Password"]').val();
     const passwordRegex =
       /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])(?=[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]*$).{6,}$/;
+      
+    console.log(password, confirmPassword, passwordRegex.test(password));
 
-    if (emailRegex.test(email)) {
+    $(
+      'input[placeholder="New Password"], input[placeholder="Confirm Password"]'
+    ).each(function () {
+      this.setCustomValidity(""); // Clear any custom validity
+    });
+
+    if (password === confirmPassword) {
       if (passwordRegex.test(password)) {
-        const signInData = {
-          email: email,
+        let otpData = localStorage.getItem("otpData");
+        otpData = JSON.parse(otpData);
+
+        otpData = {
+          email: otpData.email,
+          otp: otpData.otp,
           password: password,
         };
 
-        console.log(signInData);
-
-        // window.location.href = "/index.html";
+        console.log(otpData);
       } else {
-        $('input[placeholder="Password"]')[0].setCustomValidity(
+        // If password doesn't match regex
+        $('input[placeholder="New Password"]')[0].setCustomValidity(
           "Password must be at least 6 characters long, and contain at least one letter, one number, and one symbol. Only letters, numbers, and symbols are allowed."
         );
-        $('input[placeholder="Password"]')[0].reportValidity();
+        $('input[placeholder="New Password"]')[0].reportValidity();
       }
     } else {
-      $('input[type="email"]')[0].setCustomValidity(
-        "Please enter a valid email address (e.g., example@domain.com)."
+      // If passwords don't match
+      $('input[placeholder="Confirm Password"]')[0].setCustomValidity(
+        "Passwords do not match."
       );
-      $('input[type="email"]')[0].reportValidity();
+      $('input[placeholder="Confirm Password"]')[0].reportValidity();
     }
   });
 });
