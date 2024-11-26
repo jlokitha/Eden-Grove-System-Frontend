@@ -11,10 +11,121 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/component/embedded-pages/css/Dashboard.css" />
+    <link rel="stylesheet" href="/component/embedded-pages/css/staff.css" />
   </head>
   <body>
-    <h1>Staff</h1>
+    <section id="filter-container">
+      <div class="d-flex justify-content-between">
+        <h1>Staff</h1>
+        <button class="btn-add">Add Staff</button>
+      </div>
+      <div class="d-flex justify-content-even align-items-center" id="filter">
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>What are you looking for?</label>
+          <input type="text" placeholder="Search for name" />
+        </div>
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>Designation</label>
+          <select id="designation-selector">
+            <option value="All">All</option>
+            <option value="MANAGER">MANAGER</option>
+            <option value="SENIOR_ASSISTANT_MANAGER">
+              SENIOR_ASSISTANT_MANAGER
+            </option>
+            <option value="ASSISTANT_MANAGER">ASSISTANT_MANAGER</option>
+            <option value="ADMIN_AND_HR_STAFF">ADMIN_AND_HR_STAFF</option>
+            <option value="OFFICE_ASSISTANT">OFFICE_ASSISTANT</option>
+            <option value="SENIOR_AGRONOMIST">SENIOR_AGRONOMIST</option>
+            <option value="AGRONOMIST">AGRONOMIST</option>
+            <option value="SOIL_SCIENTIST">SOIL_SCIENTIST</option>
+            <option value="SENIOR_TECHNICIAN">SENIOR_TECHNICIAN</option>
+            <option value="TECHNICIAN">TECHNICIAN</option>
+            <option value="SUPERVISOR">SUPERVISOR</option>
+            <option value="LABOR">LABOR</option>
+          </select>
+        </div>
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>Gender</label>
+          <select id="gender-selector">
+            <option value="All">All</option>
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
+          </select>
+        </div>
+        <button class="search">Search</button>
+      </div>
+    </section>
+
+    <section id="main-content">
+      <div id="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Staff Name</th>
+              <th scope="col">Designation</th>
+              <th scope="col">Email</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-id="1">
+              <td>Janindu Lokitha</td>
+              <td>MANAGER</td>
+              <td>janindulokithagmail.com</td>
+              <td>Male</td>
+              <td>
+                <div class="action-container d-flex">
+                  <button class="view-btn">
+                    <img
+                      src="/assets/icons/eye-open.svg"
+                      alt="Eye open svg in grey color"
+                    /></button
+                  ><button class="update-btn">
+                    <img
+                      src="/assets/icons/update.svg"
+                      alt="Update svg in grey color"
+                    /></button
+                  ><button class="delete-btn">
+                    <img
+                      src="/assets/icons/delete.svg"
+                      alt="Delete svg in grey color"
+                    />
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr data-id="2">
+              <td>John Doe</td>
+              <td>SENIOR_ASSISTANT_MANAGER</td>
+              <td>johndoe.@gmail.com</td>
+              <td>Male</td>
+              <td>
+                <div class="action-container d-flex">
+                  <button class="view-btn">
+                    <img
+                      src="/assets/icons/eye-open.svg"
+                      alt="Eye open svg in grey color"
+                    /></button
+                  ><button class="update-btn">
+                    <img
+                      src="/assets/icons/update.svg"
+                      alt="Update svg in grey color"
+                    /></button
+                  ><button class="delete-btn">
+                    <img
+                      src="/assets/icons/delete.svg"
+                      alt="Delete svg in grey color"
+                    />
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -27,7 +138,7 @@
     ></script>
     <script
       type="module"
-      src="/component/embedded-pages/js/Dashboard.js"
+      src="/component/embedded-pages/js/StaffController.js"
     ></script>
   </body>
 </html>
