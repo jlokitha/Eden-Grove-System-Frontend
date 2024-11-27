@@ -1,7 +1,13 @@
 $(document).ready(function () {
+  const staffAddBtn = $("#btn-staff-add");
   const viewBtns = $(".action-container .view-btn");
   const updateBtns = $(".action-container .update-btn");
   const deleteBtns = $(".action-container .delete-btn");
+
+  // Add click event to add button
+  staffAddBtn.on("click", function () {
+    window.openStaffAddOrUpdatePopup();
+  });
 
   // Add hover effect to buttons
   viewBtns.each(function () {
@@ -39,21 +45,21 @@ $(document).ready(function () {
   viewBtns.each(function () {
     $(this).on("click", function () {
       const staffId = getStaffId(this);
-      console.log("View button clicked for staff ID:", staffId);
+      window.showStaffDetailsPopup(staffId);
     });
   });
 
   updateBtns.each(function () {
     $(this).on("click", function () {
       const staffId = getStaffId(this);
-      console.log("Update button clicked for staff ID:", staffId);
+      window.openStaffAddOrUpdatePopup(staffId);
     });
   });
 
   deleteBtns.each(function () {
     $(this).on("click", function () {
       const staffId = getStaffId(this);
-      console.log("Delete button clicked for staff ID:", staffId);
+      window.openStaffDeletePopup(staffId);
     });
   });
 

@@ -45,5 +45,4 @@ $(document).ready(function () {
     $("#time").text(time);
   }
   setInterval(updateDateTime, 1000);
-  updateDateTime();
 });
