@@ -11,10 +11,82 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/component/embedded-pages/css/Dashboard.css" />
+    <link rel="stylesheet" href="/component/embedded-pages/css/field.css" />
   </head>
   <body>
-    <h1>Field</h1>
+    <section id="filter-container">
+      <div class="d-flex justify-content-between">
+        <h1>Field</h1>
+        <button class="btn-add" id="btn-field-add">Add Field</button>
+      </div>
+      <div id="filter">
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>What are you looking for?</label>
+          <input type="text" placeholder="Search for name" />
+        </div>
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>From</label>
+          <input type="number" id="from-size" />
+        </div>
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>To</label>
+          <input type="number" id="to-size" />
+        </div>
+        <button class="search">Search</button>
+      </div>
+    </section>
+
+    <section id="main-content">
+      <div class="card" data-id="1">
+        <img
+          src="/assets/image/field-example-pic.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <button class="btn-delete">
+          <img src="/assets/icons/cancel-grey.svg" alt="" />
+        </button>
+        <div class="card-body">
+          <h5 class="card-title">Rice Palate A</h5>
+          <p class="card-text">2000 Sq.mt</p>
+          <div class="location-url d-flex align-items-center">
+            <a href="">View on Google Maps</a>
+            <img src="/assets/icons/location-arrow.svg" alt="" />
+          </div>
+          <div class="button-container d-flex">
+            <button class="btn-view">Learn More</button>
+            <button class="btn-update">
+              <img src="/assets/icons/edit-pen.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-id="2">
+        <img
+          src="/assets/image/field-example-pic.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <button class="btn-delete">
+          <img src="/assets/icons/cancel-grey.svg" alt="" />
+        </button>
+        <div class="card-body">
+          <h5 class="card-title">Rice Palate A</h5>
+          <p class="card-text">2000 Sq.mt</p>
+          <div class="location-url d-flex align-items-center">
+            <a href="">View on Google Maps</a>
+            <img src="/assets/icons/location-arrow.svg" alt="" />
+          </div>
+          <div class="button-container d-flex">
+            <button class="btn-view">Learn More</button>
+            <button class="btn-update">
+              <img src="/assets/icons/edit-pen.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -27,7 +99,7 @@
     ></script>
     <script
       type="module"
-      src="/component/embedded-pages/js/Dashboard.js"
+      src="/component/embedded-pages/js/FieldController.js"
     ></script>
   </body>
 </html>
