@@ -1,27 +1,33 @@
 $(document).ready(function () {
+  const fieldAddBtn = $("#btn-field-add");
   const viewBtns = $(".btn-view");
   const updateBtns = $(".btn-update");
   const deleteBtns = $(".btn-delete");
+
+  // Add click event to add button
+  fieldAddBtn.on("click", function () {
+    window.openFieldAddOrUpdatePopup();
+  });
 
   // Add click event to buttons
   viewBtns.each(function () {
     $(this).on("click", function () {
       const fieldId = getFieldId(this);
-      console.log("View btn clicked for Field ID: " + fieldId);
+      window.showFieldDetailsPopup(fieldId);
     });
   });
 
   updateBtns.each(function () {
     $(this).on("click", function () {
       const fieldId = getFieldId(this);
-      console.log("Update btn clicked for Field ID: " + fieldId);
+      window.openFieldAddOrUpdatePopup(fieldId);
     });
   });
 
   deleteBtns.each(function () {
     $(this).on("click", function () {
       const fieldId = getFieldId(this);
-      console.log("Delete btn clicked for Field ID: " + fieldId);
+      window.openFieldDeletePopup(fieldId);
     });
   });
 
