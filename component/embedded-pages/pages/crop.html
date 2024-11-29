@@ -11,10 +11,185 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/component/embedded-pages/css/Dashboard.css" />
+    <link rel="stylesheet" href="/component/embedded-pages/css/crop.css" />
+    <link
+      rel="stylesheet"
+      href="/component/popup/css/cropAddOrUpdatePopup.css"
+    />
+    <link rel="stylesheet" href="/component/popup/css/cropViewPopup.css" />
+    <link rel="stylesheet" href="/component/popup/css/deletePopup.css" />
   </head>
   <body>
-    <h1>Crop</h1>
+    <section id="filter-container">
+      <h1>Crop</h1>
+      <div
+        class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+      >
+        <div class="d-flex justify-content-even align-items-center" id="filter">
+          <div class="filter-component d-flex flex-column justify-content-left">
+            <label>What are you looking for?</label>
+            <input type="text" placeholder="Search for name" />
+          </div>
+          <button class="search">Search</button>
+        </div>
+        <button class="btn-add" id="btn-crop-add">Add Crop</button>
+      </div>
+    </section>
+
+    <section id="main-content">
+      <div class="card" data-id="1">
+        <img src="/assets/image/crop-example-pic.png" class="card-img-top" />
+        <button class="btn-delete">
+          <img src="/assets/icons/cancel-grey.svg" alt="" />
+        </button>
+        <div class="card-body">
+          <h5 class="card-title">Rice</h5>
+          <p class="card-text">BG -34</p>
+          <p class="card-text">Season: Monsoon</p>
+          <div class="button-container d-flex">
+            <button class="btn-view">Learn More</button>
+            <button class="btn-update">
+              <img src="/assets/icons/edit-pen.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crop view popup -->
+    <div class="overlay"></div>
+    <section id="crop-view-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Crop Details</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+      <div class="main-content">
+        <div id="carousel" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="/assets/image/crop-example-pic.png"
+                class="d-block w-100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl">Common Name</label>
+            <label id="lbl-common-name"></label>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Scientific Name</label>
+            <label id="lbl-scientific-name"></label>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Category </label>
+            <label id="lbl-category"></label>
+          </div>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Crop Season</label>
+            <label id="lbl-season"></label>
+          </div>
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl">Field</label>
+            <div
+              class="tag-container d-flex justify-content-start align-items-center mt-2"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crop add or update popup -->
+    <section id="crop-add-or-update-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Add Crop</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+
+      <form class="main-content">
+        <h3>Details</h3>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div
+            class="image-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <img
+              src="/assets/icons/image-selector.svg"
+              alt="image selector background icon"
+              class="image-icon"
+            />
+            <p>Click to upload or drag and drop</p>
+            <p>Maximum image size 10 MB</p>
+            <!-- <img src="/assets/image/field-example-pic.png" alt="selected image" class="image-selector"> -->
+          </div>
+          <div class="wrapper">
+            <div class="detail-container d-flex flex-column">
+              <label class="lbl">Common Name</label>
+              <input type="text" id="crop-common-name" />
+            </div>
+            <div class="detail-container d-flex flex-column mt-2">
+              <label class="lbl">Scientific Name</label>
+              <input type="text" id="crop-scientific-name" />
+            </div>
+          </div>
+        </div>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Category</label>
+            <input type="text" id="crop-category" />
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Season</label>
+            <input type="text" id="crop-season" />
+          </div>
+        </div>
+
+        <div class="popup-button-container d-flex justify-content-end">
+          <button type="submit" id="btn-save">Save</button>
+          <button type="submit" id="btn-update">Update</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- delete popup -->
+    <section id="delete-popup">
+      <div class="d-flex flex-column align-items-center">
+        <span class="d-flex justify-content-center align-items-center"
+          ><img src="/assets/icons/warning.svg" alt="Warning icon in red color"
+        /></span>
+        <h1>Are you sure?</h1>
+        <p class="text-center">
+          Are you sure you want to delete this record? <br />
+          This process cannot be undone.
+        </p>
+      </div>
+      <div class="popup-button-container d-flex justify-content-between">
+        <button type="submit" id="btn-cancel">Cancel</button>
+        <button type="submit" id="btn-delete">Delete</button>
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -27,7 +202,13 @@
     ></script>
     <script
       type="module"
-      src="/component/embedded-pages/js/Dashboard.js"
+      src="/component/embedded-pages/js/CropController.js"
     ></script>
+    <script
+      type="module"
+      src="/component/popup/js/CropAddOrUpdatePopup.js"
+    ></script>
+    <script type="module" src="/component/popup/js/CropViewPopup.js"></script>
+    <script type="module" src="/component/popup/js/CropDeletePopup.js"></script>
   </body>
 </html>
