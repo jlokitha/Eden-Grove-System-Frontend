@@ -11,10 +11,262 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/component/embedded-pages/css/Dashboard.css" />
+    <link rel="stylesheet" href="/component/embedded-pages/css/field.css" />
+    <link
+      rel="stylesheet"
+      href="/component/popup/css/fieldAddOrUpdatePopup.css"
+    />
+    <link rel="stylesheet" href="/component/popup/css/fieldViewPopup.css" />
+    <link rel="stylesheet" href="/component/popup/css/deletePopup.css" />
   </head>
   <body>
-    <h1>Field</h1>
+    <section id="filter-container">
+      <div class="d-flex justify-content-between">
+        <h1>Field</h1>
+        <button class="btn-add" id="btn-field-add">Add Field</button>
+      </div>
+      <div id="filter">
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>What are you looking for?</label>
+          <input type="text" placeholder="Search for name" />
+        </div>
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>From</label>
+          <input type="number" id="from-size" />
+        </div>
+        <div class="filter-component d-flex flex-column justify-content-left">
+          <label>To</label>
+          <input type="number" id="to-size" />
+        </div>
+        <button class="search">Search</button>
+      </div>
+    </section>
+
+    <section id="main-content">
+      <div class="card" data-id="1">
+        <img
+          src="/assets/image/field-example-pic.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <button class="btn-delete">
+          <img src="/assets/icons/cancel-grey.svg" alt="" />
+        </button>
+        <div class="card-body">
+          <h5 class="card-title">Rice Palate A</h5>
+          <p class="card-text">2000 Sq.mt</p>
+          <div class="location-url d-flex align-items-center">
+            <a href="">View on Google Maps</a>
+            <img src="/assets/icons/location-arrow.svg" alt="" />
+          </div>
+          <div class="button-container d-flex">
+            <button class="btn-view">Learn More</button>
+            <button class="btn-update">
+              <img src="/assets/icons/edit-pen.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card" data-id="2">
+        <img
+          src="/assets/image/field-example-pic.png"
+          class="card-img-top"
+          alt="..."
+        />
+        <button class="btn-delete">
+          <img src="/assets/icons/cancel-grey.svg" alt="" />
+        </button>
+        <div class="card-body">
+          <h5 class="card-title">Rice Palate A</h5>
+          <p class="card-text">2000 Sq.mt</p>
+          <div class="location-url d-flex align-items-center">
+            <a href="">View on Google Maps</a>
+            <img src="/assets/icons/location-arrow.svg" alt="" />
+          </div>
+          <div class="button-container d-flex">
+            <button class="btn-view">Learn More</button>
+            <button class="btn-update">
+              <img src="/assets/icons/edit-pen.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field view popup -->
+    <div class="overlay"></div>
+    <section id="field-view-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Field Details</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+      <div class="main-content">
+        <div id="carousel" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="/assets/image/field-example-pic.png"
+                class="d-block w-100"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="/assets/image/field-example-pic.png"
+                class="d-block w-100"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="/assets/image/field-example-pic.png"
+                class="d-block w-100"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl">Field Name</label>
+            <label id="lbl-name"></label>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Field Size</label>
+            <label id="lbl-size"></label>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Gender</label>
+            <div class="location-url d-flex align-items-center">
+              <a id="field-location" href="" target="_blank"
+                >View on Google Maps</a
+              >
+              <img src="/assets/icons/location-arrow.svg" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl">Crops</label>
+            <div
+              class="tag-container d-flex justify-content-start align-items-center mt-2"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field add or update popup -->
+    <section id="field-add-or-update-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Add Field</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+
+      <form class="main-content">
+        <h3>Details</h3>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div
+            class="image-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <img
+              src="/assets/icons/image-selector.svg"
+              alt="image selector background icon"
+              class="image-icon"
+            />
+            <p>Click to upload or drag and drop</p>
+            <p>Maximum image size 10 MB</p>
+            <!-- <img src="/assets/image/field-example-pic.png" alt="selected image" class="image-selector"> -->
+          </div>
+          <div
+            class="image-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <img
+              src="/assets/icons/image-selector.svg"
+              alt="image selector background icon"
+              class="image-icon"
+            />
+            <p>Click to upload or drag and drop</p>
+            <p>Maximum image size 10 MB</p>
+          </div>
+        </div>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Field Name</label>
+            <input type="text" id="field-name-in" />
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Field Size (Sq.mt)</label>
+            <input type="number" id="field-size-in" />
+          </div>
+        </div>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl"
+              >Field Location (Please enter google map web URL)</label
+            >
+            <input type="text" id="field-url-in" />
+          </div>
+        </div>
+
+        <div class="popup-button-container d-flex justify-content-end">
+          <button type="submit" id="btn-save">Save</button>
+          <button type="submit" id="btn-update">Update</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- delete popup -->
+    <section id="delete-popup">
+      <div class="d-flex flex-column align-items-center">
+        <span class="d-flex justify-content-center align-items-center"
+          ><img src="/assets/icons/warning.svg" alt="Warning icon in red color"
+        /></span>
+        <h1>Are you sure?</h1>
+        <p class="text-center">
+          Are you sure you want to delete this record? <br />
+          This process cannot be undone.
+        </p>
+      </div>
+      <div class="popup-button-container d-flex justify-content-between">
+        <button type="submit" id="btn-cancel">Cancel</button>
+        <button type="submit" id="btn-delete">Delete</button>
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -27,7 +279,16 @@
     ></script>
     <script
       type="module"
-      src="/component/embedded-pages/js/Dashboard.js"
+      src="/component/embedded-pages/js/FieldController.js"
+    ></script>
+    <script
+      type="module"
+      src="/component/popup/js/FieldAddOrUpdatePopup.js"
+    ></script>
+    <script type="module" src="/component/popup/js/FieldViewPopup.js"></script>
+    <script
+      type="module"
+      src="/component/popup/js/FieldDeletePopup.js"
     ></script>
   </body>
 </html>
