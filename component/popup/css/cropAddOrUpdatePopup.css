@@ -12,7 +12,7 @@
   display: none;
 }
 
-#field-add-or-update-popup .title-container {
+#crop-add-or-update-popup .title-container {
   border: none;
   padding: 0;
 }
@@ -34,6 +34,7 @@
   padding: 40px 10px;
   margin-bottom: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 .image-container .image-icon {

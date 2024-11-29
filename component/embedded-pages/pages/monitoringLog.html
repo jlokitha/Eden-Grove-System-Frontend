@@ -11,10 +11,248 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/component/embedded-pages/css/Dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="/component/embedded-pages/css/monitoringLog.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/component/popup/css/monitoringLogAddOrUpdatePopup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/component/popup/css/monitoringLogViewPopup.css"
+    />
+    <link rel="stylesheet" href="/component/popup/css/deletePopup.css" />
   </head>
   <body>
-    <h1>Monitoring Log</h1>
+    <section id="filter-container">
+      <h1>Monitoring Log</h1>
+      <div
+        class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+      >
+        <div class="d-flex justify-content-even align-items-center" id="filter">
+          <div class="filter-component d-flex flex-column justify-content-left">
+            <label>Field</label>
+            <input type="text" placeholder="Search for field name" />
+          </div>
+          <div class="filter-component d-flex flex-column justify-content-left">
+            <label>Date</label>
+            <input type="date" />
+          </div>
+          <button class="search">Search</button>
+        </div>
+        <button class="btn-add" id="btn-log-add">Add Log</button>
+      </div>
+    </section>
+
+    <section id="main-content">
+      <div class="card" data-id="1">
+        <img src="/assets/image/crop-example-pic.png" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-title">L - 001</h5>
+          <p class="card-text">2024 - 11 - 13</p>
+          <p class="card-text">Field : Rice Palate A</p>
+          <div class="button-container d-flex">
+            <button class="btn-view">Learn More</button>
+            <button class="btn-update">
+              <img src="/assets/icons/edit-pen.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monitoring log view popup -->
+    <div class="overlay"></div>
+    <section id="log-view-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Log Details</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+      <div class="main-content">
+        <div id="carousel" class="carousel slide d-flex justify-content-center align-items-center">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="/assets/image/crop-example-pic.png"
+                class="d-block w-100"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl mb-2">Log Code</label>
+            <label id="lbl-common-name">L - 001</label>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl mb-2">Log Date</label>
+            <label id="lbl-scientific-name">2024 - 11 - 13</label>
+          </div>
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl">Field</label>
+            <div
+              class="tag-container d-flex justify-content-start align-items-center mt-2"
+            >
+              <p>Field A</p>
+            </div>
+          </div>
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl">Crops</label>
+            <div
+              class="tag-container d-flex justify-content-start align-items-center mt-2"
+            >
+              <p>Crop A</p>
+              <p>Crop B</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl mb-2">Observation</label>
+            <div class="observation-container">
+              <label id="lbl-observatios"
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+                suscipit distinctio illo unde! Provident recusandae quam
+                repellat ut enim impedit. Non modi eligendi veniam laborum
+                repellendus commodi? Eos, repellat impedit omnis placeat, neque
+                corrupti, obcaecati eum modi dolore nisi dolor possimus debitis
+                voluptatibus! Porro exercitationem eum est esse quaerat
+                excepturi harum quod atque ex, officiis eos repellat maiores
+                error saepe deserunt asperiores quam, dolores similique
+                molestias doloremque. Molestiae temporibus recusandae cumque
+                voluptatum voluptates aliquid nam qui, earum expedita rerum ipsa
+                eligendi animi quidem sint nisi, unde quibusdam voluptas,
+                tempora fugit laudantium natus autem minus cupiditate? Quidem
+                aut eum sed tempore dolor eos odio sint tenetur magnam corrupti
+                deleniti soluta, rem reiciendis sit nesciunt doloremque velit,
+                dolorum commodi dignissimos optio, magni minima? Nemo tenetur
+                suscipit corporis repudiandae. Similique, quibusdam deleniti?
+                Ipsam ex dolorem officiis. Et nulla cupiditate, impedit corporis
+                ipsum, sapiente tempora molestias accusantium obcaecati nobis
+                animi illum est? Adipisci, praesentium minima? Eum repellendus,
+                natus minima vel ipsam vitae blanditiis consequatur hic et
+                facere similique optio dolor? Distinctio architecto deserunt
+                ullam consequatur adipisci, magnam a minima error ea, veniam,
+                doloribus velit modi. Dolore, eius rem veniam dolores numquam
+                repellendus, ipsa architecto cumque libero quasi eligendi
+                praesentium deserunt nihil sed, dolorum obcaecati.</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="detail-container d-flex flex-column flex-wrap mt-2">
+          <label class="lbl">Staffs</label>
+          <div
+            class="tag-container d-flex justify-content-start align-items-center mt-2"
+          >
+            <p>Staff A</p>
+            <p>Staff 2</p>
+            <p>Staff A</p>
+            <p>Staff 2</p>
+            <p>Staff A</p>
+            <p>Staff 2</p>
+            <p>Staff A</p>
+            <p>Staff 2</p>
+            <p>Staff A</p>
+            <p>Staff 2</p>
+            <p>Staff A</p>
+            <p>Staff 2</p>
+            <p>Staff A</p>
+            <p>Staff 2</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monitoring log add or update popup -->
+    <section id="log-add-or-update-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Add Log</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+
+      <form class="main-content">
+        <h3>Details</h3>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div
+            class="image-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <img
+              src="/assets/icons/image-selector.svg"
+              alt="image selector background icon"
+              class="image-icon"
+            />
+            <p>Click to upload or drag and drop</p>
+            <p>Maximum image size 10 MB</p>
+            <!-- <img src="/assets/image/field-example-pic.png" alt="selected image" class="image-selector"> -->
+          </div>
+          <div class="wrapper">
+            <div class="detail-container d-flex flex-column">
+              <label class="lbl">Field</label>
+              <select name="field-selector" id="field-dp"></select>
+            </div>
+            <div class="detail-container d-flex flex-column mt-2">
+              <div
+                class="tag-container d-flex justify-content-between align-items-center"
+              >
+                <label class="lbl">Crop</label>
+                <p>Crop Count: 2</p>
+              </div>
+              <select name="crop-selelctor" id="crop-dp">
+                <option value="1">Rice</option>
+                <option value="2">Wheat</option>
+              </select>
+            </div>
+            <div class="detail-container d-flex flex-column mt-2">
+              <div
+                class="tag-container d-flex justify-content-between align-items-center"
+              >
+                <label class="lbl">Staff</label>
+                <p>Staff Count: 3</p>
+              </div>
+              <select name="staff-selector" id="staff-dp"></select>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Observation</label>
+            <textarea
+              name="field-observation"
+              rows="4"
+              placeholder="Enter Observation of the field...."
+              id="observation-ta"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="popup-button-container d-flex justify-content-end">
+          <button type="submit" id="btn-save">Save</button>
+          <button type="submit" id="btn-update">Update</button>
+        </div>
+      </form>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -27,7 +265,15 @@
     ></script>
     <script
       type="module"
-      src="/component/embedded-pages/js/Dashboard.js"
+      src="/component/embedded-pages/js/MonitoringLogController.js"
+    ></script>
+    <script
+      type="module"
+      src="/component/popup/js/MonitoringLogAddOrUpdatePopup.js"
+    ></script>
+    <script
+      type="module"
+      src="/component/popup/js/MonitoringLogViewPopup.js"
     ></script>
   </body>
 </html>

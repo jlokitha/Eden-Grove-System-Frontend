@@ -135,21 +135,3 @@ body {
 .btn-update:hover {
   background: var(--color-hover-bg);
 }
-
-.btn-delete {
-  width: 30px;
-  height: 30px;
-  min-width: 25px;
-  background: var(--color-light);
-  border: none;
-  border-radius: 5px;
-  padding: 0;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  opacity: 0.7;
-}
-
-.btn-delete:hover {
-  opacity: 0.8;
-}
