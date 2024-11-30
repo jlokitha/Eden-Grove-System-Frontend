@@ -11,10 +11,335 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/component/embedded-pages/css/Dashboard.css" />
+    <link rel="stylesheet" href="/component/embedded-pages/css/vehicle.css" />
+    <link rel="stylesheet" href="/component/popup/css/vehicleViewPopup.css" />
+    <link
+      rel="stylesheet"
+      href="/component/popup/css/vehicleAddOrUpdatePopup.css"
+    />
+    <link rel="stylesheet" href="/component/popup/css/deletePopup.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Vehicle</h1>
+    <section id="filter-container">
+      <h1>Vehicle</h1>
+      <div
+        class="d-flex justify-content-between align-items-center flex-wrap gap-3"
+      >
+        <div class="d-flex justify-content-even align-items-center" id="filter">
+          <div class="filter-component d-flex flex-column justify-content-left">
+            <label>Category</label>
+            <input
+              type="text"
+              id="category-search"
+              placeholder="Search by category"
+            />
+          </div>
+          <div class="filter-component d-flex flex-column justify-content-left">
+            <label>Status</label>
+            <select name="status-selector" id="status-dp">
+              <option value="ALL" selected>All</option>
+              <option value="AVAILABLE">Available</option>
+              <option value="OUT_OF_SERVICE">Out of Service</option>
+              <option value="IN_USE">In Use</option>
+              <option value="UNDER_MANITENANCE">Under Maintenance</option>
+            </select>
+          </div>
+          <button class="search">Search</button>
+        </div>
+        <button class="btn-add" id="btn-vehicle-add">Add Vehicle</button>
+      </div>
+    </section>
+
+    <section id="main-content">
+      <div id="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">License Plate No</th>
+              <th scope="col">Category</th>
+              <th scope="col">Fuel Type</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-id="1">
+              <td>XYZ 1234</td>
+              <td>Sedan</td>
+              <td>Petrol</td>
+              <td class="d-flex justify-content-center">
+                <p class="available-tag">Available</p>
+              </td>
+              <td>
+                <div class="action-container d-flex">
+                  <button class="view-btn">
+                    <img
+                      src="/assets/icons/eye-open.svg"
+                      alt="Eye open svg in grey color"
+                    /></button
+                  ><button class="update-btn">
+                    <img
+                      src="/assets/icons/update.svg"
+                      alt="Update svg in grey color"
+                    /></button
+                  ><button class="delete-btn">
+                    <img
+                      src="/assets/icons/delete.svg"
+                      alt="Delete svg in grey color"
+                    />
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr data-id="2">
+              <td>XYZ 1234</td>
+              <td>Sedan</td>
+              <td>Petrol</td>
+              <td class="d-flex justify-content-center">
+                <p class="out-of-service-tag">Out of Service</p>
+              </td>
+              <td>
+                <div class="action-container d-flex">
+                  <button class="view-btn">
+                    <img
+                      src="/assets/icons/eye-open.svg"
+                      alt="Eye open svg in grey color"
+                    /></button
+                  ><button class="update-btn">
+                    <img
+                      src="/assets/icons/update.svg"
+                      alt="Update svg in grey color"
+                    /></button
+                  ><button class="delete-btn">
+                    <img
+                      src="/assets/icons/delete.svg"
+                      alt="Delete svg in grey color"
+                    />
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr data-id="3">
+              <td>XYZ 1234</td>
+              <td>Sedan</td>
+              <td>Petrol</td>
+              <td class="d-flex justify-content-center">
+                <p class="in-use-tag">In Use</p>
+              </td>
+              <td>
+                <div class="action-container d-flex">
+                  <button class="view-btn">
+                    <img
+                      src="/assets/icons/eye-open.svg"
+                      alt="Eye open svg in grey color"
+                    /></button
+                  ><button class="update-btn">
+                    <img
+                      src="/assets/icons/update.svg"
+                      alt="Update svg in grey color"
+                    /></button
+                  ><button class="delete-btn">
+                    <img
+                      src="/assets/icons/delete.svg"
+                      alt="Delete svg in grey color"
+                    />
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr data-id="4">
+              <td>XYZ 1234</td>
+              <td>Sedan</td>
+              <td>Petrol</td>
+              <td class="d-flex justify-content-center">
+                <p class="under-maintenance-tag">Under Maintenance</p>
+              </td>
+              <td>
+                <div class="action-container d-flex">
+                  <button class="view-btn">
+                    <img
+                      src="/assets/icons/eye-open.svg"
+                      alt="Eye open svg in grey color"
+                    /></button
+                  ><button class="update-btn">
+                    <img
+                      src="/assets/icons/update.svg"
+                      alt="Update svg in grey color"
+                    /></button
+                  ><button class="delete-btn">
+                    <img
+                      src="/assets/icons/delete.svg"
+                      alt="Delete svg in grey color"
+                    />
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Vehicle view popup -->
+    <div class="overlay"></div>
+    <section id="vehicle-view-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Vehicle Details</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+      <div class="main-content">
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Vehicle Code</label>
+            <label id="lbl-code"></label>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">License Plate No</label>
+            <label id="lbl-license-plate-no"></label>
+          </div>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Category</label>
+            <label id="lbl-category"></label>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Fuel Type</label>
+            <label id="lbl-fuel-type"></label>
+          </div>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Remark</label>
+            <label id="lbl-remark"></label>
+          </div>
+        </div>
+        <div
+          class="wrapper d-flex justify-content-between align-items-center mb-3"
+        >
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl">Staff</label>
+            <div
+              class="tag-container d-flex justify-content-start align-items-center mt-2"
+            ></div>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label id="lbl-status"></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vehicle add or update popup -->
+    <section id="vehicle-add-or-update-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Add Vehicle</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+
+      <form class="main-content">
+        <h3>Details</h3>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">License plate number</label>
+            <input type="text" id="license-plate-in" />
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Category</label>
+            <input type="text" id="category-in" />
+          </div>
+        </div>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Fuel Type</label>
+            <select id="fuel-type-dp">
+              <option value="" disabled selected>Fuel Type</option>
+              <option value="DIESEL">Diesel</option>
+              <option value="PETROL">Petrol</option>
+            </select>
+          </div>
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Status</label>
+            <select id="dp-status">
+              <option value="" disabled selected>Status</option>
+              <option value="AVAILABLE">Available</option>
+              <option value="OUT_OF_SERVICE">Out of Service</option>
+              <option value="IN_USE">In Use</option>
+              <option value="UNDER_MANITENANCE">Under Maintenance</option>
+            </select>
+          </div>
+        </div>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Remark</label>
+            <textarea
+              rows="4"
+              id="remark-ta"
+              placeholder="Enter remark of the vehicle...."
+            ></textarea>
+          </div>
+        </div>
+
+        <h3 class="mt-2">Optional</h3>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Staff</label>
+            <select id="staff-dp">
+              <option disabled selected>Staff</option>
+              <option value="">Staff 5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-container d-flex justify-content-end">
+          <button type="submit" id="btn-save">Save</button>
+          <button type="submit" id="btn-update">Update</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- delete popup -->
+    <section id="delete-popup">
+      <div class="d-flex flex-column align-items-center">
+        <span class="d-flex justify-content-center align-items-center"
+          ><img src="/assets/icons/warning.svg" alt="Warning icon in red color"
+        /></span>
+        <h1>Are you sure?</h1>
+        <p class="text-center">
+          Are you sure you want to delete this record? <br />
+          This process cannot be undone.
+        </p>
+      </div>
+      <div class="button-container d-flex justify-content-between">
+        <button type="submit" id="btn-cancel">Cancel</button>
+        <button type="submit" id="btn-delete">Delete</button>
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -27,7 +352,20 @@
     ></script>
     <script
       type="module"
-      src="/component/embedded-pages/js/Dashboard.js"
+      src="/component/embedded-pages/js/VehicleController.js"
     ></script>
+    <script
+      type="module"
+      src="/component/popup/js/VehicleViewPopup.js"
+    ></script>
+    <script
+      type="module"
+      src="/component/popup/js/VehicleAddOrUpdatePopup.js"
+    ></script>
+    <script
+      type="module"
+      src="/component/popup/js/VehicleDeletePopup.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   </body>
 </html>

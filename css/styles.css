@@ -9,6 +9,10 @@
   --color-hover-bg: #f8f8f8;
   --color-url-text: #006eff;
   --color-tag-bg: #EEEEEE;
+  --color-primary-bg: #CFFFE2;
+  --color-blue-bg: #A9EBFF;
+  --color-yellow-text: #FF9000;
+  --color-yellow-bg: #FFF1DE;
 }
 
 * {
