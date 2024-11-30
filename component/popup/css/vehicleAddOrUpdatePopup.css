@@ -1,0 +1,77 @@
+#vehicle-add-or-update-popup {
+  min-width: 650px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - 100px), calc(-50%));
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  display: none;
+}
+
+#vehicle-add-or-update-popup .title-container {
+  border: none;
+  padding: 0;
+}
+
+.wrapper {
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.main-content h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.main-content input,
+select,
+textarea {
+  max-width: 300px;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  border-bottom: 1px solid #727374;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.main-content textarea {
+  max-width: none;
+  border-radius: 5px;
+  border: 1px solid var(--color-secondary-text-color);
+}
+
+/* Style the Select2 container */
+.select2-container {
+  max-width: 300px;
+  width: 100%;
+  border: none;
+}
+
+.button-container {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.button-container button {
+  width: 120px;
+  height: 40px;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+}
+
+.button-container button:hover {
+  opacity: 0.8;
+}
+
+#btn-update {
+  display: none;
+}
