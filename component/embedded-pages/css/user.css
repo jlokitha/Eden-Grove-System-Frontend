@@ -1,0 +1,122 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#filter-container {
+  background: #fff;
+  padding-bottom: 20px;
+}
+
+#filter-container h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+select {
+  max-width: 200px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 2px solid #727374;
+  border-radius: 10px;
+  padding: 8px;
+  min-width: 300px;
+}
+
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+#table-container {
+  flex: 1;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+#table-container > table {
+  width: 100%;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+#table-container > table > thead {
+  background: #cfffe2;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#table-container > table > thead > tr > th {
+  padding: 10px 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+#table-container > table > tbody {
+  flex: 1;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+#main-content ::-webkit-scrollbar {
+  display: none;
+}
+
+#table-container > table > tbody > tr {
+  background: #f9f9f9;
+  border: none;
+  border-bottom: 1px solid #727374;
+}
+
+#table-container > table > tbody > tr > td {
+  text-align: center;
+  padding: 10px 40px;
+}
+
+.action-container {
+  gap: 10px;
+}
+
+.action-container button {
+  background: #f9f9f9;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  margin: auto;
+  padding: 0;
+  transition: 300ms ease-in-out;
+}
+
+.delete-btn img {
+  width: 17px;
+  height: 18.125px;
+}
+
+.button-container {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.button-container button {
+  width: 120px;
+  height: 40px;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+}
+
+.button-container button:hover {
+  opacity: 0.8;
+}
