@@ -3,20 +3,20 @@ $(document).ready(function () {
 
   $("#btn-cancel").on("click", function () {
     vehicleId = null;
-    $("#delete-popup").hide();
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
   $("#btn-delete").on("click", function () {
     console.log("Delete vehicle with ID: " + vehicleId);
     vehicleId = null;
-    $("#delete-popup").hide();
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  window.openVehicleDeletePopup = function (id) {
+  window.openEquipmentDeletePopup = function (id) {
     vehicleId = id;
-    $("#delete-popup").show();
+    $("#delete-popup").fadeIn();
     $(".overlay").show();
   };
 });
