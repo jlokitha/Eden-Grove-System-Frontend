@@ -1,4 +1,9 @@
+import { signUp } from "../../service/RegistrationService.js";
+
 $(document).ready(function () {
+  let otpData = JSON.parse(localStorage.getItem("otpData"));
+  $('input[type="email"]').val(otpData.email);
+
   // Password visibility toggle
   $(".visibility-toggle").click(function () {
     const passwordInput = $(this).siblings("input");
@@ -30,14 +35,27 @@ $(document).ready(function () {
 
     if (emailRegex.test(email)) {
       if (passwordRegex.test(password)) {
-        const signInData = {
-          email: email,
+        otpData = {
+          email: otpData.email,
           password: password,
+          otp: otpData.otp,
         };
 
-        console.log(signInData);
+        signUp(otpData)
+          .then((response) => {
+            // Set the token in a cookie that expires in 5 days
+            const expires = new Date();
+            expires.setTime(expires.getTime() + 5 * 24 * 60 * 60 * 1000);
+            document.cookie = `token=${
+              response.token
+            }; expires=${expires.toUTCString()}; path=/;`;
 
-        window.location.href = "/pages/dashboard.html";
+            localStorage.removeItem("otpData");
+            window.location.href = "/pages/home.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
       } else {
         $('input[placeholder="Password"]')[0].setCustomValidity(
           "Password must be at least 6 characters long, and contain at least one letter, one number, and one symbol. Only letters, numbers, and symbols are allowed."

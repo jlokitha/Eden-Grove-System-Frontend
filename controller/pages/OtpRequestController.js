@@ -1,3 +1,5 @@
+import { requestOtp } from "../../service/RegistrationService.js";
+
 $(document).ready(function () {
   $("form").on("submit", (e) => {
     e.preventDefault();
@@ -11,6 +13,7 @@ $(document).ready(function () {
       };
 
       localStorage.setItem("otpData", JSON.stringify(otpData));
+      requestOtp(email);
 
       window.location.href = "/pages/otpVerification.html";
     } else {

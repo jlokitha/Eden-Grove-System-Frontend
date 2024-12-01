@@ -1,3 +1,5 @@
+import { signIn } from "../service/RegistrationService.js";
+
 $(document).ready(function () {
   // Password visibility toggle
   $(".visibility-toggle").click(function () {
@@ -33,9 +35,21 @@ $(document).ready(function () {
           password: password,
         };
 
-        console.log(signInData);
-
-        window.location.href = "/pages/dashboard.html";
+        signIn(signInData)
+          .then((response) => {
+            // Set the token in a cookie that expires in 5 days
+            const expires = new Date();
+            expires.setTime(expires.getTime() + 5 * 24 * 60 * 60 * 1000);
+            document.cookie = `token=${
+              response.token
+            }; expires=${expires.toUTCString()}; path=/;`;
+            
+            localStorage.removeItem("otpData");
+            window.location.href = "/pages/home.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
       } else {
         $('input[placeholder="Password"]')[0].setCustomValidity(
           "Password must be at least 6 characters long, and contain at least one letter, one number, and one symbol. Only letters, numbers, and symbols are allowed."
@@ -48,5 +62,13 @@ $(document).ready(function () {
       );
       $('input[type="email"]')[0].reportValidity();
     }
+  });
+
+  $("#password-reset-link").click(function () {
+    localStorage.setItem("otpAction", "passwordReset");
+  });
+
+  $("#sign-up-link").click(function () {
+    localStorage.setItem("otpAction", "signUp");
   });
 });

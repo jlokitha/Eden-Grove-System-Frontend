@@ -1,5 +1,8 @@
+import { requestOtp } from "../../service/RegistrationService.js";
+
 $(document).ready(function () {
   const inputs = $("#input-container input");
+  const linkResend = $("#resend-link");
 
   // Restrict the user from typing more than one character
   inputs.on("keydown", function (e) {
@@ -32,6 +35,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     let otpData = localStorage.getItem("otpData");
+    let otpAction = localStorage.getItem("otpAction");
 
     if (otpData) {
       otpData = JSON.parse(otpData);
@@ -46,9 +50,21 @@ $(document).ready(function () {
         otp: otp,
       };
       localStorage.setItem("otpData", JSON.stringify(otpData));
-      window.location.href = "/pages/passwordReset.html";
+
+      if (otpAction === "passwordReset") {
+        window.location.href = "/pages/passwordReset.html";
+      } else if (otpAction === "signUp") {
+        window.location.href = "/pages/signUp.html";
+      } else {
+        console.error("Unknown action specified.");
+      }
     } else {
       console.error("otpData not found in local storage");
     }
+  });
+
+  linkResend.on("click", function () {
+    let otpData = JSON.parse(localStorage.getItem("otpData"));
+    requestOtp(otpData.email);
   });
 });
