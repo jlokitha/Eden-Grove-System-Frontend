@@ -1,3 +1,5 @@
+import { resetPassword } from "../../service/RegistrationService.js";
+
 $(document).ready(function () {
   // Password visibility toggle
   $(".visibility-toggle").click(function () {
@@ -24,7 +26,7 @@ $(document).ready(function () {
     const confirmPassword = $('input[placeholder="Confirm Password"]').val();
     const passwordRegex =
       /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])(?=[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]*$).{6,}$/;
-      
+
     console.log(password, confirmPassword, passwordRegex.test(password));
 
     $(
@@ -44,7 +46,15 @@ $(document).ready(function () {
           password: password,
         };
 
-        console.log(otpData);
+        resetPassword(otpData)
+          .then((response) => {
+            localStorage.removeItem("otpData");
+            localStorage.removeItem("otpAction");
+            window.location.href = "/index.html";
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
       } else {
         // If password doesn't match regex
         $('input[placeholder="New Password"]')[0].setCustomValidity(
