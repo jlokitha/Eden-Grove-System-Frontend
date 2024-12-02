@@ -51,6 +51,7 @@ $(document).ready(function () {
             }; expires=${expires.toUTCString()}; path=/;`;
 
             localStorage.removeItem("otpData");
+            localStorage.removeItem("otpAction");
             window.location.href = "/pages/home.html";
           })
           .catch((error) => {

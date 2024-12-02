@@ -1,22 +1,27 @@
+import { deleteStaff } from "../../../service/StaffService.js";
+
 $(document).ready(function () {
   let staffId;
+  let loadStaffTable = null;
 
   $("#btn-cancel").on("click", function () {
     staffId = null;
-    $("#delete-popup").hide();
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  $("#btn-delete").on("click", function () {
-    console.log("Delete staff with ID: " + staffId);
+  $("#btn-delete").on("click", async function () {
+    const responce = await deleteStaff(staffId);
+    loadStaffTable();
     staffId = null;
-    $("#delete-popup").hide();
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  window.openStaffDeletePopup = function (id) {
+  window.openStaffDeletePopup = function (id, callback) {
     staffId = id;
-    $("#delete-popup").show();
+    loadStaffTable = callback;
+    $("#delete-popup").fadeIn();
     $(".overlay").show();
   };
 });

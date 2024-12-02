@@ -1,4 +1,5 @@
 import { refreshToken } from "../../service/RegistrationService.js";
+import { findStaffByToken } from "../../service/StaffService.js";
 
 $(document).ready(function () {
   $(".nav-btn:first").addClass("nav-btn-active");
@@ -16,13 +17,21 @@ $(document).ready(function () {
     refreshToken(token)
       .then((response) => {
         // If the server returns a new token, replace the current token in the cookie
-        if (response.newToken) {
+        if (response.token) {
           // Set the token in a cookie that expires in 5 days
           const expires = new Date();
           expires.setTime(expires.getTime() + 5 * 24 * 60 * 60 * 1000);
           document.cookie = `token=${
             response.token
           }; expires=${expires.toUTCString()}; path=/;`;
+
+          $.ajaxSetup({
+            headers: {
+              Authorization: `Bearer ${response.token}`,
+            },
+          });
+
+          setStaffInfo();
         }
       })
       .catch((error) => {
@@ -55,6 +64,24 @@ $(document).ready(function () {
     removeCookie("token");
     window.location.href = "/index.html";
   });
+
+  function getStaffInfo() {
+    findStaffByToken()
+      .then((staff) => {
+        localStorage.setItem("user", JSON.stringify(staff));
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  function setStaffInfo() {
+    getStaffInfo();
+    const staff = JSON.parse(localStorage.getItem("staff"));
+    $("#user-info .name").text(staff.name);
+    $("#user-info .role").text(staff.role);
+    $("#text-container .name").text(staff.name);
+  }
 
   function updateDateTime() {
     const now = new Date();

@@ -49,6 +49,7 @@ $(document).ready(function () {
         resetPassword(otpData)
           .then((response) => {
             localStorage.removeItem("otpData");
+            localStorage.removeItem("otpAction");
             window.location.href = "/index.html";
           })
           .catch((error) => {

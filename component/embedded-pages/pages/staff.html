@@ -18,6 +18,10 @@
       href="/component/popup/css/staffAddOrUpdatePopup.css"
     />
     <link rel="stylesheet" href="/component/popup/css/deletePopup.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section id="filter-container">
@@ -28,12 +32,12 @@
       <div class="d-flex justify-content-even align-items-center" id="filter">
         <div class="filter-component d-flex flex-column justify-content-left">
           <label>What are you looking for?</label>
-          <input type="text" placeholder="Search for name" />
+          <input type="text" placeholder="Search for name" id="name-search" />
         </div>
         <div class="filter-component d-flex flex-column justify-content-left">
           <label>Designation</label>
           <select id="designation-selector">
-            <option value="All">All</option>
+            <option value="ALL">All</option>
             <option value="MANAGER">MANAGER</option>
             <option value="SENIOR_ASSISTANT_MANAGER">
               SENIOR_ASSISTANT_MANAGER
@@ -53,12 +57,15 @@
         <div class="filter-component d-flex flex-column justify-content-left">
           <label>Gender</label>
           <select id="gender-selector">
-            <option value="All">All</option>
+            <option value="ALL">All</option>
             <option value="MALE">MALE</option>
             <option value="FEMALE">FEMALE</option>
           </select>
         </div>
         <button class="search">Search</button>
+        <button class="clear-filter">
+          <img src="/assets/icons/reset-filter.svg" alt="clear all icon" />
+        </button>
       </div>
     </section>
 
@@ -74,346 +81,7 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr data-id="1">
-              <td>Janindu Lokitha</td>
-              <td>MANAGER</td>
-              <td>janindulokithagmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>John Doe</td>
-              <td>SENIOR_ASSISTANT_MANAGER</td>
-              <td>johndoe.@gmail.com</td>
-              <td>Male</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </section>
@@ -437,11 +105,11 @@
           class="wrapper d-flex justify-content-between align-items-center mb-3"
         >
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-name">Name</label>
+            <label class="lbl">Name</label>
             <label id="lbl-name"></label>
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-gender">Gender</label>
+            <label class="lbl">Gender</label>
             <label id="lbl-gender"></label>
           </div>
         </div>
@@ -449,11 +117,11 @@
           class="wrapper d-flex justify-content-between align-items-center mb-3"
         >
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-dob">Date of Birth</label>
+            <label class="lbl">Date of Birth</label>
             <label id="lbl-dob"></label>
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-address">Address</label>
+            <label class="lbl">Address</label>
             <label id="lbl-address"></label>
           </div>
         </div>
@@ -461,11 +129,11 @@
           class="wrapper d-flex justify-content-between align-items-center mb-3"
         >
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-email">Email</label>
+            <label class="lbl">Email</label>
             <label id="lbl-email"></label>
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-mobile">Mobile</label>
+            <label class="lbl">Mobile</label>
             <label id="lbl-mobile"></label>
           </div>
         </div>
@@ -473,21 +141,21 @@
           class="wrapper d-flex justify-content-between align-items-center mb-3"
         >
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-postal-code">Postal Code</label>
+            <label class="lbl">Postal Code</label>
             <label id="lbl-postal-code"></label>
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-designation">Designation</label>
+            <label class="lbl">Designation</label>
             <label id="lbl-designation"></label>
           </div>
         </div>
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-role">Role</label>
+            <label class="lbl">Role</label>
             <label id="lbl-role"></label>
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="lbl-joined-date">Joined Date</label>
+            <label class="lbl">Joined Date</label>
             <label id="lbl-joined-date"></label>
           </div>
         </div>
@@ -512,60 +180,120 @@
         <h3>Details</h3>
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="first-name">First Name</label>
-            <input type="text" id="first-name" />
+            <label class="lbl">First Name</label>
+            <input
+              type="text"
+              id="first-name"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="last-name">Last Name</label>
-            <input type="text" id="last-name" />
+            <label class="lbl">Last Name</label>
+            <input
+              type="text"
+              id="last-name"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
         </div>
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="gender-dpd">Gender</label>
-            <select id="gender-dpd">
+            <label class="lbl">Gender</label>
+            <select
+              id="gender-dpd"
+              required
+              oninput="this.setCustomValidity('')"
+            >
               <option value="" disabled selected>Gender</option>
               <option value="MALE">MALE</option>
               <option value="FEMALE">FEMALE</option>
             </select>
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="designation-dpd">Designation</label>
-            <select id="designation-dpd">
+            <label class="lbl">Designation</label>
+            <select
+              id="designation-dpd"
+              required
+              oninput="this.setCustomValidity('')"
+            >
               <option value="" disabled selected>Designation</option>
-              <option value="MALE">MALE</option>
-              <option value="FEMALE">FEMALE</option>
+              <option value="MANAGER">MANAGER</option>
+              <option value="SENIOR_ASSISTANT_MANAGER">
+                SENIOR_ASSISTANT_MANAGER
+              </option>
+              <option value="ASSISTANT_MANAGER">ASSISTANT_MANAGER</option>
+              <option value="ADMIN_AND_HR_STAFF">ADMIN_AND_HR_STAFF</option>
+              <option value="OFFICE_ASSISTANT">OFFICE_ASSISTANT</option>
+              <option value="SENIOR_AGRONOMIST">SENIOR_AGRONOMIST</option>
+              <option value="AGRONOMIST">AGRONOMIST</option>
+              <option value="SOIL_SCIENTIST">SOIL_SCIENTIST</option>
+              <option value="SENIOR_TECHNICIAN">SENIOR_TECHNICIAN</option>
+              <option value="TECHNICIAN">TECHNICIAN</option>
+              <option value="SUPERVISOR">SUPERVISOR</option>
+              <option value="LABOR">LABOR</option>
             </select>
           </div>
         </div>
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="dob">Date of Birth</label>
-            <input type="date" id="dob" />
+            <label class="lbl">Date of Birth</label>
+            <input
+              type="date"
+              id="dob"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="house-no">Address</label>
-            <input type="text" id="house-no" />
+            <label class="lbl">Address</label>
+            <input
+              type="text"
+              id="address"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
         </div>
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="postal-code">Postal Code</label>
-            <input type="number" id="postal-code" />
+            <label class="lbl">Postal Code</label>
+            <input
+              type="number"
+              id="postal-code"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="email">Email</label>
-            <input type="email" id="email" />
+            <label class="lbl">Email</label>
+            <input
+              type="email"
+              id="email"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
         </div>
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="mobile">Mobile</label>
-            <input type="number" id="mobile" />
+            <label class="lbl">Mobile</label>
+            <input
+              type="number"
+              id="mobile"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl" for="joined-date">Joined Date</label>
-            <input type="date" id="joined-date" />
+            <label class="lbl">Joined Date</label>
+            <input
+              type="date"
+              id="joined-date"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
         </div>
 
@@ -617,5 +345,6 @@
       type="module"
       src="/component/popup/js/StaffDeletePopup.js"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   </body>
 </html>

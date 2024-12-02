@@ -29,6 +29,7 @@ body {
   color: #fff;
   font-size: 0.9rem;
   font-weight: 600;
+  transition: 300ms ease-in-out;
 }
 
 .btn-add:hover {
@@ -72,10 +73,33 @@ select {
   border: none;
   border-radius: 10px;
   background: #139547;
+  transition: 300ms ease-in-out;
 }
 
 .search:hover {
   opacity: 0.8;
+}
+
+.clear-filter {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  background: var(--color-light);
+  border: 2px solid var(--color-secondary-text-color);
+  border-radius: 10px;
+  padding: 0;
+  margin-left: 10px;
+  transition: 300ms ease-in-out;
+}
+
+.clear-filter img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.clear-filter:hover {
+  background: var(--color-hover-bg);
 }
 
 #main-content {
@@ -84,6 +108,11 @@ select {
   flex-direction: column;
   overflow: hidden;
   position: relative;
+  scrollbar-width: none;
+}
+
+#main-content ::-webkit-scrollbar {
+  display: none;
 }
 
 #table-container {
@@ -107,19 +136,14 @@ select {
 }
 
 #table-container > table > thead > tr > th {
-  padding: 10px 20px;
-  text-align: left;
+  padding: 10px 40px;
+  text-align: center;
   font-weight: 600;
 }
 
 #table-container > table > tbody {
   flex: 1;
   overflow-y: scroll;
-  scrollbar-width: none;
-}
-
-#main-content ::-webkit-scrollbar {
-  display: none;
 }
 
 #table-container > table > tbody > tr {
@@ -129,7 +153,8 @@ select {
 }
 
 #table-container > table > tbody > tr > td {
-  padding: 10px 20px;
+  text-align: center;
+  padding: 10px 40px;
 }
 
 input[type="checkbox"] {
@@ -148,7 +173,7 @@ input[type="checkbox"] {
   height: 30px;
   border: none;
   border-radius: 10px;
-  margin: 0;
+  margin: auto;
   padding: 0;
   transition: 300ms ease-in-out;
 }
@@ -166,4 +191,8 @@ input[type="checkbox"] {
 .delete-btn img {
   width: 17px;
   height: 18.125px;
+}
+
+.hide {
+  display: none;
 }
