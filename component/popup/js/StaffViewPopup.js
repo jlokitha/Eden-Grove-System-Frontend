@@ -19,7 +19,9 @@ $(document).ready(function () {
     $("#lbl-postal-code").text(details.postalCode);
     $("#lbl-designation").text(details.designation);
     $("#lbl-role").text(details.role);
-    $("#lbl-joined-date").text(details.joinedDate);
+    $("#lbl-joined-date").text(
+      new Date(details.joinedDate).toISOString().slice(0, 10)
+    );
 
     $("#staff-view-popup").fadeIn();
     $(".overlay").show();

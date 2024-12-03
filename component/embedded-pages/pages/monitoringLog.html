@@ -24,6 +24,10 @@
       href="/component/popup/css/monitoringLogViewPopup.css"
     />
     <link rel="stylesheet" href="/component/popup/css/deletePopup.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section id="filter-container">
@@ -34,34 +38,26 @@
         <div class="d-flex justify-content-even align-items-center" id="filter">
           <div class="filter-component d-flex flex-column justify-content-left">
             <label>Field</label>
-            <input type="text" placeholder="Search for field name" />
+            <input
+              type="text"
+              placeholder="Search for field name"
+              id="name-search"
+            />
           </div>
           <div class="filter-component d-flex flex-column justify-content-left">
             <label>Date</label>
-            <input type="date" />
+            <input type="date" id="log-date" />
           </div>
           <button class="search">Search</button>
+          <button class="clear-filter">
+            <img src="/assets/icons/reset-filter.svg" alt="clear all icon" />
+          </button>
         </div>
         <button class="btn-add" id="btn-log-add">Add Log</button>
       </div>
     </section>
 
-    <section id="main-content">
-      <div class="card" data-id="1">
-        <img src="/assets/image/crop-example-pic.png" class="card-img-top" />
-        <div class="card-body">
-          <h5 class="card-title">L - 001</h5>
-          <p class="card-text">2024 - 11 - 13</p>
-          <p class="card-text">Field : Rice Palate A</p>
-          <div class="button-container d-flex">
-            <button class="btn-view">Learn More</button>
-            <button class="btn-update">
-              <img src="/assets/icons/edit-pen.svg" alt="" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="main-content"></section>
 
     <!-- Monitoring log view popup -->
     <div class="overlay"></div>
@@ -78,12 +74,16 @@
         </button>
       </div>
       <div class="main-content">
-        <div id="carousel" class="carousel slide d-flex justify-content-center align-items-center">
+        <div
+          id="carousel"
+          class="carousel slide d-flex justify-content-center align-items-center"
+        >
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img
                 src="/assets/image/crop-example-pic.png"
                 class="d-block w-100"
+                id="observation-image"
               />
             </div>
           </div>
@@ -93,28 +93,25 @@
         >
           <div class="detail-container d-flex flex-column flex-wrap">
             <label class="lbl mb-2">Log Code</label>
-            <label id="lbl-common-name">L - 001</label>
+            <label id="lbl-log-code"></label>
           </div>
           <div class="detail-container d-flex flex-column">
             <label class="lbl mb-2">Log Date</label>
-            <label id="lbl-scientific-name">2024 - 11 - 13</label>
+            <label id="lbl-date"></label>
           </div>
           <div class="detail-container d-flex flex-column flex-wrap">
             <label class="lbl">Field</label>
             <div
+              id="field-tag-container"
               class="tag-container d-flex justify-content-start align-items-center mt-2"
-            >
-              <p>Field A</p>
-            </div>
+            ></div>
           </div>
           <div class="detail-container d-flex flex-column flex-wrap">
             <label class="lbl">Crops</label>
             <div
-              class="tag-container d-flex justify-content-start align-items-center mt-2"
-            >
-              <p>Crop A</p>
-              <p>Crop B</p>
-            </div>
+              id="crop-tag-container"
+              class="tag-container crop-tag-container d-flex justify-content-start align-items-center mt-2"
+            ></div>
           </div>
         </div>
         <div
@@ -123,56 +120,16 @@
           <div class="detail-container d-flex flex-column flex-wrap">
             <label class="lbl mb-2">Observation</label>
             <div class="observation-container">
-              <label id="lbl-observatios"
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-                suscipit distinctio illo unde! Provident recusandae quam
-                repellat ut enim impedit. Non modi eligendi veniam laborum
-                repellendus commodi? Eos, repellat impedit omnis placeat, neque
-                corrupti, obcaecati eum modi dolore nisi dolor possimus debitis
-                voluptatibus! Porro exercitationem eum est esse quaerat
-                excepturi harum quod atque ex, officiis eos repellat maiores
-                error saepe deserunt asperiores quam, dolores similique
-                molestias doloremque. Molestiae temporibus recusandae cumque
-                voluptatum voluptates aliquid nam qui, earum expedita rerum ipsa
-                eligendi animi quidem sint nisi, unde quibusdam voluptas,
-                tempora fugit laudantium natus autem minus cupiditate? Quidem
-                aut eum sed tempore dolor eos odio sint tenetur magnam corrupti
-                deleniti soluta, rem reiciendis sit nesciunt doloremque velit,
-                dolorum commodi dignissimos optio, magni minima? Nemo tenetur
-                suscipit corporis repudiandae. Similique, quibusdam deleniti?
-                Ipsam ex dolorem officiis. Et nulla cupiditate, impedit corporis
-                ipsum, sapiente tempora molestias accusantium obcaecati nobis
-                animi illum est? Adipisci, praesentium minima? Eum repellendus,
-                natus minima vel ipsam vitae blanditiis consequatur hic et
-                facere similique optio dolor? Distinctio architecto deserunt
-                ullam consequatur adipisci, magnam a minima error ea, veniam,
-                doloribus velit modi. Dolore, eius rem veniam dolores numquam
-                repellendus, ipsa architecto cumque libero quasi eligendi
-                praesentium deserunt nihil sed, dolorum obcaecati.</label
-              >
+              <label id="lbl-observation"></label>
             </div>
           </div>
         </div>
         <div class="detail-container d-flex flex-column flex-wrap mt-2">
           <label class="lbl">Staffs</label>
           <div
+            id="staff-tag-container"
             class="tag-container d-flex justify-content-start align-items-center mt-2"
-          >
-            <p>Staff A</p>
-            <p>Staff 2</p>
-            <p>Staff A</p>
-            <p>Staff 2</p>
-            <p>Staff A</p>
-            <p>Staff 2</p>
-            <p>Staff A</p>
-            <p>Staff 2</p>
-            <p>Staff A</p>
-            <p>Staff 2</p>
-            <p>Staff A</p>
-            <p>Staff 2</p>
-            <p>Staff A</p>
-            <p>Staff 2</p>
-          </div>
+          ></div>
         </div>
       </div>
     </section>
@@ -204,33 +161,54 @@
             />
             <p>Click to upload or drag and drop</p>
             <p>Maximum image size 10 MB</p>
-            <!-- <img src="/assets/image/field-example-pic.png" alt="selected image" class="image-selector"> -->
+            <img src=" " alt="selected image" class="image-selector" />
+            <input
+              type="file"
+              class="image-input"
+              id="image-input"
+              accept="image/*"
+              hidden
+            />
           </div>
           <div class="wrapper">
             <div class="detail-container d-flex flex-column">
               <label class="lbl">Field</label>
-              <select name="field-selector" id="field-dp"></select>
+              <select
+                name="field-selector"
+                id="field-dp"
+                required
+                oninput="this.setCustomValidity('')"
+              ></select>
             </div>
             <div class="detail-container d-flex flex-column mt-2">
               <div
                 class="tag-container d-flex justify-content-between align-items-center"
               >
                 <label class="lbl">Crop</label>
-                <p>Crop Count: 2</p>
+                <p id="crop-count">Crop: 0</p>
               </div>
-              <select name="crop-selelctor" id="crop-dp">
-                <option value="1">Rice</option>
-                <option value="2">Wheat</option>
-              </select>
+              <select
+                name="crop-selelctor"
+                id="crop-dp"
+                multiple
+                required
+                oninput="this.setCustomValidity('')"
+              ></select>
             </div>
             <div class="detail-container d-flex flex-column mt-2">
               <div
                 class="tag-container d-flex justify-content-between align-items-center"
               >
                 <label class="lbl">Staff</label>
-                <p>Staff Count: 3</p>
+                <p id="staff-count">Staff: 0</p>
               </div>
-              <select name="staff-selector" id="staff-dp"></select>
+              <select
+                name="staff-selector"
+                id="staff-dp"
+                multiple
+                required
+                oninput="this.setCustomValidity('')"
+              ></select>
             </div>
           </div>
         </div>
@@ -242,6 +220,8 @@
               rows="4"
               placeholder="Enter Observation of the field...."
               id="observation-ta"
+              required
+              oninput="this.setCustomValidity('')"
             ></textarea>
           </div>
         </div>
@@ -275,5 +255,6 @@
       type="module"
       src="/component/popup/js/MonitoringLogViewPopup.js"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   </body>
 </html>

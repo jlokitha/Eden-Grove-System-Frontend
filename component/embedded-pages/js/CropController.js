@@ -186,7 +186,7 @@ $(document).ready(function () {
     const height = $(this).height();
 
     if (scrollHeight - scrollTop - height <= 50) {
-      loadFieldData(); // Trigger loading of the next page when the user is near the bottom
+      loadCropData(); // Trigger loading of the next page when the user is near the bottom
     }
   });
 });

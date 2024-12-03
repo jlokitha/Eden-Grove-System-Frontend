@@ -18,6 +18,7 @@ $(document).ready(function () {
 
   // Function to open the field add or update popup
   window.openCropAddOrUpdatePopup = function (cropId, callback) {
+    currentCropId = cropId;
     loadCropPage = callback;
     $("#field-dpd").empty();
     loadFieldData();
@@ -41,20 +42,22 @@ $(document).ready(function () {
     const details = await findCropById(cropId);
 
     // Example of Base64 image data
-    const base64Image = `data:image/png;base64,${details.fieldImage1}`;
+    const base64Image = `data:image/png;base64,${details.cropImage}`;
 
     $(".image-selector").attr("src", base64Image);
     $(".image-selector").show();
-    $("#crop-common-name").val(details.fieldName);
-    $("#crop-scientific-name").val(details.fieldSize);
-    $("#crop-category").val(getGoogleMapsUrl(details.fieldLocation));
-    $("#crop-season").val(details.fieldLocation);
+    $("#crop-common-name").val(details.commonName);
+    $("#crop-scientific-name").val(details.scientificName);
+    $("#crop-category").val(details.category);
+    $("#crop-season").val(details.season);
     $("#image-input").data(
       "file",
-      base64ToFile(details.fieldImage2, `${details.fieldName}-image.png`)
+      base64ToFile(details.cropImage, `${details.cropCode}-image.png`)
     );
 
-    setValuesToFieldDp(details.field);
+    setTimeout(() => {
+      setValuesToFieldDp(details.fieldDto);
+    }, 2000);
   };
 
   $("form").on("submit", async (e) => {
@@ -94,7 +97,8 @@ $(document).ready(function () {
     }
 
     if (currentCropId) {
-      await updateCrop(cropId, formData);
+      alert("Updating crop");
+      await updateCrop(currentCropId, formData);
     } else {
       await saveCrop(formData);
     }
@@ -153,9 +157,9 @@ $(document).ready(function () {
   }
 
   function setValuesToFieldDp(field) {
-    if (field) return;
-    $("#field-dpd").val(field.id).trigger("change");
-    refreshfieldCount();
+    if ($("#field-dpd").val(field.fcode)) {
+      $("#field-dpd").val(field.fcode).trigger("change");
+    }
   }
 
   // Function to validate the form inputs
@@ -212,3 +216,12 @@ function loadFieldData() {
     fieldDropdown.trigger("change");
   });
 }
+
+const base64ToFile = function (base64String, filename) {
+  const binaryString = atob(base64String.replace(/_/g, "/").replace(/-/g, "+"));
+  const byteArray = Uint8Array.from(binaryString, (char) => char.charCodeAt(0));
+  const file = new File([byteArray], filename, {
+    type: "image/png",
+  });
+  return file;
+};
