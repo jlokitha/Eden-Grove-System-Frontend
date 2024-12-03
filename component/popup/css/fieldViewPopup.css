@@ -1,8 +1,11 @@
 #field-view-popup {
   min-width: 600px;
+  max-width: 600px;
+  max-height: 530px;
+  overflow-y: auto;
   background: #fff;
-  padding: 15px;
-  padding-bottom: 0;
+  padding: 0 15px;
+  padding-bottom: 10px;
   border-radius: 10px;
   position: fixed;
   top: 50%;
@@ -10,6 +13,11 @@
   transform: translate(calc(-50% - 100px), calc(-50%));
   box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
   z-index: 1001;
+  scrollbar-width: none;
+  display: none;
+}
+
+#field-view-popup::-webkit-scrollbar {
   display: none;
 }
 
@@ -26,8 +34,12 @@
 
 .title-container {
   margin-bottom: 10px;
-  padding-bottom: 10px;
+  padding: 20px 0 0 0;
+  position: sticky;
+  top: 0;
+  background: var(--color-light);
   border-bottom: 1px solid #727374;
+  z-index: 1001;
 }
 
 .title-container h1 {
@@ -74,4 +86,8 @@
   border-radius: 10px;
   margin: 0;
   width: fit-content;
+}
+
+.wrapper {
+  margin-bottom: 0 !important;
 }

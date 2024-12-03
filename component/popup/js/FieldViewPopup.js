@@ -1,31 +1,73 @@
+import { findFieldById } from "../../../service/FieldService.js";
+
 $(document).ready(function () {
   $(".close-btn").click(function () {
-    $("#field-view-popup").hide();
+    $("#equipment-tag-container").empty();
+    $("#crop-tag-container").empty();
+    $("#staff-tag-container").empty();
+    $("#field-view-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  const details = {
-    fcode: "F-001",
-    fieldName: "Rice Palate A",
-    fieldSize: 2000,
-    fieldLocation: "6.9215873,79.9833517",
-    crops: ["Rice", "Wheat"],
-  };
-
   // Function to show staff details in the popup
-  window.showFieldDetailsPopup = function (fieldId) {
-    console.log("Show field details for staff ID: " + fieldId);
+  window.showFieldDetailsPopup = async function (fieldId) {
+    const details = await findFieldById(fieldId);
 
+    // Example of Base64 image data
+    const base64Image1 = `data:image/png;base64,${details.fieldImage1}`;
+    const base64Image2 = `data:image/png;base64,${details.fieldImage2}`;
+
+    $("#field-image-1").attr("src", base64Image1);
+    $("#field-image-2").attr("src", base64Image2);
     $("#lbl-name").text(details.fieldName);
     $("#lbl-size").text(details.fieldSize + " Sq.mt");
     $("#field-location").attr("href", getGoogleMapsUrl(details.fieldLocation));
-    const tagContainer = $(".tag-container");
-    details.crops.forEach((crop) => {
-      const p = $("<p></p>").text(crop);
-      tagContainer.append(p);
-    });
 
-    $("#field-view-popup").show();
+    if (details.crops.length > 0) {
+      $(".crop-lbl").show();
+      $("#crop-tag-container").show();
+
+      const tagContainer = $("#crop-tag-container");
+      details.crops.forEach((crop) => {
+        const p = $("<p></p>").text(
+          `${crop.commonName} (${crop.scientificName})`
+        );
+        tagContainer.append(p);
+      });
+    } else {
+      $(".crop-lbl").hide();
+      $("#crop-tag-container").hide();
+    }
+
+    if (details.staffs.length > 0) {
+      $(".staff-lbl").show();
+      $("#staff-tag-container").show();
+
+      const tagContainer = $("#staff-tag-container");
+      details.staffs.forEach((staff) => {
+        const p = $("<p></p>").text(`${staff.name}`);
+        tagContainer.append(p);
+      });
+    } else {
+      $(".staff-lbl").hide();
+      $("#staff-tag-container").hide();
+    }
+
+    if (details.equipments.length > 0) {
+      $(".equipment-lbl").show();
+      $("#equipment-tag-container").show();
+
+      const tagContainer = $("#crop-tag-container");
+      details.equipments.forEach((equipment) => {
+        const p = $("<p></p>").text(`${equipment.name}`);
+        tagContainer.append(p);
+      });
+    } else {
+      $(".equipment-lbl").hide();
+      $("#equipment-tag-container").hide();
+    }
+
+    $("#field-view-popup").fadeIn();
     $(".overlay").show();
   };
 
@@ -37,4 +79,10 @@ $(document).ready(function () {
     const googleMapsUrl = `https://www.google.com/maps?q=${x},${y}&z=15`;
     return googleMapsUrl;
   }
+
+  $("#carousel").carousel({
+    interval: 2000, // Set auto-slide every 2 seconds, optional
+  });
+  $("#carousel").carousel("next"); // To go to the next slide
+  $("#carousel").carousel("prev"); // To go to the previous slide
 });

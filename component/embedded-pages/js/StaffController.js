@@ -48,7 +48,7 @@ $(document).ready(function () {
         });
     } else {
       // Load default staff if no filters are applied
-      findAllStaff(pageNo)
+      findAllStaff(pageNo, 20)
         .then((response) => {
           if (response.length === 0) {
             hasMorePosts = false; // No more posts to load

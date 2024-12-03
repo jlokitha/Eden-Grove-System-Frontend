@@ -6,6 +6,7 @@ $(document).ready(function () {
 
   $("#btn-cancel").on("click", function () {
     staffId = null;
+    loadStaffTable = null;
     $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
