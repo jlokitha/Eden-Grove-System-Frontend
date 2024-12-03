@@ -1,5 +1,6 @@
 #log-view-popup {
   width: 700px;
+  max-width: 700px;
   background: var(--color-light);
   padding: 15px;
   border-radius: 10px;
@@ -36,8 +37,13 @@
 
 .close-btn {
   border: none;
+  border-radius: 5px;
   background: transparent;
   transition: 300ms ease-in-out;
+}
+
+.close-btn:hover {
+  background: var(--color-hover-bg);
 }
 
 #carousel {
@@ -61,7 +67,7 @@
 }
 
 .main-content .observation-container {
-  max-height: 100px;
+  max-height: 90px;
   overflow: hidden;
   overflow-y: auto;
   scrollbar-width: none;
@@ -80,6 +86,10 @@
   cursor: pointer;
 }
 
+.crop-tag-container {
+  max-width: 200px;
+}
+
 .tag-container::-webkit-scrollbar {
   display: none;
 }
@@ -91,4 +101,7 @@
   border-radius: 10px;
   margin: 0;
   width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

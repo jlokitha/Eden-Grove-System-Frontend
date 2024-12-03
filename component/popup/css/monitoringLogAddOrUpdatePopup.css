@@ -52,6 +52,7 @@
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  display: none;
 }
 
 .image-container > p {
@@ -81,6 +82,28 @@ textarea {
 .main-content textarea {
   border-radius: 5px;
   border: 1px solid var(--color-secondary-text-color);
+}
+
+.select2-selection--multiple,
+.select2-selection--single {
+  min-height: 40px !important;
+  max-height: 40px !important;
+  overflow-y: auto;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #727374 !important;
+  margin-top: 3px;
+  scrollbar-width: none;
+}
+
+.select2-results__option--selectable {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 0.9rem !important;
+}
+
+.select2-container--default
+  .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: var(--color-primary) !important;
 }
 
 .popup-button-container {

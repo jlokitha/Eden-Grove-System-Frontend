@@ -36,8 +36,13 @@
 
 .close-btn {
   border: none;
+  border-radius: 5px;
   background: transparent;
   transition: 300ms ease-in-out;
+}
+
+.close-btn:hover {
+  background: var(--color-hover-bg);
 }
 
 .detail-container {
