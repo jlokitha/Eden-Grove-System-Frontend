@@ -7,7 +7,7 @@ import {
 
 $(document).ready(function () {
   let currentFieldId;
-  let loadFieldTable;
+  let loadFieldPage;
   let selectedStaffIds = [];
   let selectedEquipmentIds = [];
 
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
   // Function to open the staff add or update popup
   window.openFieldAddOrUpdatePopup = function (fieldId, callback) {
-    loadFieldTable = callback;
+    loadFieldPage = callback;
     $("#staff-dpd").empty();
     $("#equipment-dpd").empty();
     loadStaffData();
@@ -59,11 +59,11 @@ $(document).ready(function () {
     $("#field-url-in").val(getGoogleMapsUrl(details.fieldLocation));
     $("#image-input-1").data(
       "file",
-      base64ToFile(details.fieldImage1, "image1.png")
+      base64ToFile(details.fieldImage1, `${fieldId}-image-1.png`)
     );
     $("#image-input-2").data(
       "file",
-      base64ToFile(details.fieldImage2, "image2.png")
+      base64ToFile(details.fieldImage2, `${fieldId}-image-2.png`)
     );
 
     setValuesToStaffDp(details.staffs);
@@ -111,7 +111,7 @@ $(document).ready(function () {
       await saveField(formData);
     }
 
-    loadFieldTable();
+    loadFieldPage();
     clearFieldData();
     $("#field-add-or-update-popup").fadeOut();
     $(".overlay").hide();

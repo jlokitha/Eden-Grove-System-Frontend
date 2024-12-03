@@ -23,24 +23,23 @@ $(document).ready(function () {
 
     if (filtersApplied) {
       // Load filtered staff if filters are applied
-      filterAllField({
+      filterFields({
         page: pageNo,
-        size: 20,
+        size: 10,
         name: $("#name-search").val().trim(),
         designation: $("#from-size").val().trim(),
         gender: $("#to-size").val().trim(),
       })
         .then((response) => {
           if (response.length === 0) {
-            hasMorePosts = false; // No more posts to load
-            alert("No more card to load");
+            hasMorePosts = false;
           } else {
             displayFieldData(response);
             pageNo++; // Increment the page number for the next request
           }
         })
         .catch((error) => {
-          console.error(error);
+          alert(error.message);
         })
         .finally(() => {
           isLoading = false; // Reset loading flag after data is loaded
@@ -83,7 +82,6 @@ $(document).ready(function () {
               <img
                 src="data:image/png;base64,${field.fieldImage1}"
                 class="card-img-top"
-                alt="..."
               />
               <button class="btn-delete">
                 <img src="/assets/icons/cancel-grey.svg" alt="" />
@@ -157,7 +155,7 @@ $(document).ready(function () {
     if (!isNaN(to) && to > 1) {
       filterData.toSize = to;
     }
-    
+
     filterFields(filterData)
       .then((response) => {
         mainContent.empty();
@@ -165,7 +163,7 @@ $(document).ready(function () {
         this.filterData = null;
       })
       .catch((error) => {
-        console.error(error);
+       alert(error.message);
       });
   });
 

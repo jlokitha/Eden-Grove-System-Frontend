@@ -18,6 +18,10 @@
     />
     <link rel="stylesheet" href="/component/popup/css/cropViewPopup.css" />
     <link rel="stylesheet" href="/component/popup/css/deletePopup.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section id="filter-container">
@@ -28,33 +32,18 @@
         <div class="d-flex justify-content-even align-items-center" id="filter">
           <div class="filter-component d-flex flex-column justify-content-left">
             <label>What are you looking for?</label>
-            <input type="text" placeholder="Search for name" />
+            <input type="text" placeholder="Search for name" id="name-search" />
           </div>
           <button class="search">Search</button>
+          <button class="clear-filter">
+            <img src="/assets/icons/reset-filter.svg" alt="clear all icon" />
+          </button>
         </div>
         <button class="btn-add" id="btn-crop-add">Add Crop</button>
       </div>
     </section>
 
-    <section id="main-content">
-      <div class="card" data-id="1">
-        <img src="/assets/image/crop-example-pic.png" class="card-img-top" />
-        <button class="btn-delete">
-          <img src="/assets/icons/cancel-grey.svg" alt="" />
-        </button>
-        <div class="card-body">
-          <h5 class="card-title">Rice</h5>
-          <p class="card-text">BG -34</p>
-          <p class="card-text">Season: Monsoon</p>
-          <div class="button-container d-flex">
-            <button class="btn-view">Learn More</button>
-            <button class="btn-update">
-              <img src="/assets/icons/edit-pen.svg" alt="" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="main-content"></section>
 
     <!-- Crop view popup -->
     <div class="overlay"></div>
@@ -77,6 +66,7 @@
               <img
                 src="/assets/image/crop-example-pic.png"
                 class="d-block w-100"
+                id="crop-image"
               />
             </div>
           </div>
@@ -105,7 +95,7 @@
             <label id="lbl-season"></label>
           </div>
           <div class="detail-container d-flex flex-column flex-wrap">
-            <label class="lbl">Field</label>
+            <label class="lbl field-lbl">Field</label>
             <div
               class="tag-container d-flex justify-content-start align-items-center mt-2"
             ></div>
@@ -141,27 +131,62 @@
             />
             <p>Click to upload or drag and drop</p>
             <p>Maximum image size 10 MB</p>
-            <!-- <img src="/assets/image/field-example-pic.png" alt="selected image" class="image-selector"> -->
+            <img src=" " alt="selected image" class="image-selector" />
+            <input
+              type="file"
+              class="image-input"
+              id="image-input"
+              accept="image/*"
+              hidden
+            />
           </div>
           <div class="wrapper">
             <div class="detail-container d-flex flex-column">
               <label class="lbl">Common Name</label>
-              <input type="text" id="crop-common-name" />
+              <input
+                type="text"
+                id="crop-common-name"
+                required
+                oninput="this.setCustomValidity('')"
+              />
             </div>
             <div class="detail-container d-flex flex-column mt-2">
               <label class="lbl">Scientific Name</label>
-              <input type="text" id="crop-scientific-name" />
+              <input
+                type="text"
+                id="crop-scientific-name"
+                required
+                oninput="this.setCustomValidity('')"
+              />
             </div>
           </div>
         </div>
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
             <label class="lbl">Category</label>
-            <input type="text" id="crop-category" />
+            <input
+              type="text"
+              id="crop-category"
+              required
+              oninput="this.setCustomValidity('')"
+            />
           </div>
           <div class="detail-container d-flex flex-column">
             <label class="lbl">Season</label>
-            <input type="text" id="crop-season" />
+            <input
+              type="text"
+              id="crop-season"
+              required
+              oninput="this.setCustomValidity('')"
+            />
+          </div>
+        </div>
+
+        <h3>Optional</h3>
+        <div class="wrapper d-flex justify-content-between align-items-center">
+          <div class="detail-container d-flex flex-column">
+            <label class="lbl">Field</label>
+            <select id="field-dpd"></select>
           </div>
         </div>
 
@@ -210,5 +235,6 @@
     ></script>
     <script type="module" src="/component/popup/js/CropViewPopup.js"></script>
     <script type="module" src="/component/popup/js/CropDeletePopup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   </body>
 </html>

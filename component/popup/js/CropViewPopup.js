@@ -1,33 +1,31 @@
+import { findCropById } from "../../../service/CropService.js";
+
 $(document).ready(function () {
   $(".close-btn").click(function () {
-    $("#crop-view-popup").hide();
+    $(".tag-container").empty();
+    $("#crop-view-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  const details = {
-    cropCode: "C-001",
-    commonName: "Tomato",
-    scientificName: "Solanum lycopersicum",
-    category: "Vegetable",
-    season: "Summer",
-    field: "Field A",
-  };
-
   // Function to show staff details in the popup
-  window.showCropDetailsPopup = function (cropId) {
-    console.log("Show crop details for crop ID: " + cropId);
+  window.showCropDetailsPopup = async function (cropId) {
+    const details = await findCropById(cropId);
 
+    const base64Image = `data:image/png;base64,${details.cropImage}`;
+
+    $("#crop-image").attr("src", base64Image);
     $("#lbl-common-name").text(details.commonName);
     $("#lbl-scientific-name").text(details.scientificName);
     $("#lbl-category").text(details.category);
-    $("#lbl-season").text("Season: " + details.season);
+    $("#lbl-season").text(details.season);
     const tagContainer = $(".tag-container");
-    if (details.field) {
-      const p = $("<p></p>").text(details.field);
+    if (details.fieldDto) {
+      $(".field-lbl").show();
+      const p = $("<p></p>").text(details.fieldDto.fieldName);
       tagContainer.append(p);
-    }
+    } else $(".field-lbl").hide();
 
-    $("#crop-view-popup").show();
+    $("#crop-view-popup").fadeIn();
     $(".overlay").show();
   };
 });

@@ -133,12 +133,11 @@ $(document).ready(function () {
   });
 
   $("#gender-dpd").select2({
-    placeholder: "Select an gender",
+    placeholder: "Select a gender",
   });
 
   $("#designation-dpd").select2({
-    maximumSelectionLength: 5,
-    placeholder: "Select an designation",
+    placeholder: "Select a designation",
   });
 
   // Function to clear the staff data
