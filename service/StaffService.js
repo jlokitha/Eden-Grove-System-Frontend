@@ -114,12 +114,12 @@ export function findStaffById(id) {
   });
 }
 
-export function findAllStaff(page) {
+export function findAllStaff(page, size) {
   return new Promise((resolve, reject) => {
     $.ajax({
       url: "http://localhost:5055/greenshadow/api/v1/staff",
       type: "GET",
-      data: { page: page, size: 10 },
+      data: { page: page, size: size },
       success: function (response) {
         console.log("Successfully retrieved staff:", response);
         resolve(response);

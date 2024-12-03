@@ -1,22 +1,28 @@
+import { deleteField } from "../../../service/FieldService.js";
+
 $(document).ready(function () {
   let fieldId;
+  let loadFieldTable = null;
 
   $("#btn-cancel").on("click", function () {
     fieldId = null;
-    $("#delete-popup").hide();
+    loadFieldTable = null;
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  $("#btn-delete").on("click", function () {
-    console.log("Delete field with ID: " + fieldId);
+  $("#btn-delete").on("click", async function () {
+    await deleteField(fieldId);
+    loadFieldTable();
     fieldId = null;
-    $("#delete-popup").hide();
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  window.openFieldDeletePopup = function (id) {
+  window.openFieldDeletePopup = function (id, callback) {
     fieldId = id;
-    $("#delete-popup").show();
+    loadFieldTable = callback;
+    $("#delete-popup").fadeIn();
     $(".overlay").show();
   };
 });
