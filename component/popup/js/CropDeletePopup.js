@@ -1,22 +1,29 @@
+import { deleteCrop } from "../../../service/CropService.js";
+
 $(document).ready(function () {
   let cropId;
+  let loadCropTable = null;
 
   $("#btn-cancel").on("click", function () {
     cropId = null;
-    $("#delete-popup").hide();
+    loadCropTable = null;
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  $("#btn-delete").on("click", function () {
-    console.log("Delete crop with ID: " + cropId);
+  $("#btn-delete").on("click", async function () {
+    await deleteCrop(cropId);
+    loadCropTable();
+    loadCropTable = null;
     cropId = null;
-    $("#delete-popup").hide();
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  window.openCropDeletePopup = function (id) {
+  window.openCropDeletePopup = function (id, callback) {
     cropId = id;
-    $("#delete-popup").show();
+    loadCropTable = callback;
+    $("#delete-popup").fadeIn();
     $(".overlay").show();
   };
 });

@@ -84,7 +84,8 @@
   margin-bottom: 10px;
 }
 
-.main-content input {
+.main-content input,
+select {
   width: 100%;
   border: none;
   border-radius: 0;

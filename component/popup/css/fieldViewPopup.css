@@ -3,7 +3,7 @@
   max-width: 600px;
   max-height: 530px;
   overflow-y: auto;
-  background: #fff;
+  background: var(--color-light);
   padding: 0 15px;
   padding-bottom: 10px;
   border-radius: 10px;
@@ -49,8 +49,13 @@
 
 .close-btn {
   border: none;
+  border-radius: 5px;
   background: transparent;
   transition: 300ms ease-in-out;
+}
+
+.close-btn:hover {
+  background: var(--color-hover-bg);
 }
 
 #carousel {
