@@ -39,6 +39,22 @@ $(document).ready(function () {
         removeCookie("token");
         window.location.href = "/index.html";
       });
+    hideActionButtons();
+  }
+
+  function hideActionButtons() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user.role === "SCIENTIST" || user.role === "ADMINISTRATIVE") {
+      $("#user-btn").hide();
+      $("#user-btn").removeClass(
+        "nav-btn d-flex justify-content-left align-items-center"
+      );
+    } else {
+      $("#user-btn").show();
+      $("#user-btn").addClass(
+        "nav-btn d-flex justify-content-left align-items-center"
+      );
+    }
   }
 
   navButtons.each(function () {
