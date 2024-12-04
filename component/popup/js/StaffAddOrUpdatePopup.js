@@ -1,6 +1,8 @@
-import { findStaffById } from "../../../service/StaffService.js";
-import { saveStaff } from "../../../service/StaffService.js";
-import { updateStaff } from "../../../service/StaffService.js";
+import {
+  findStaffById,
+  saveStaff,
+  updateStaff,
+} from "../../../service/StaffService.js";
 
 $(document).ready(function () {
   let currentStaffId = null;

@@ -1,22 +1,28 @@
+import { deleteVehicle } from "../../../service/VehicleService.js";
+
 $(document).ready(function () {
   let vehicleId;
+  let loadVehicleTable;
 
   $("#btn-cancel").on("click", function () {
     vehicleId = null;
-    $("#delete-popup").hide();
+    loadVehicleTable = null;
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  $("#btn-delete").on("click", function () {
-    console.log("Delete vehicle with ID: " + vehicleId);
+  $("#btn-delete").on("click", async function () {
+    await deleteVehicle(vehicleId);
+    loadVehicleTable();
     vehicleId = null;
-    $("#delete-popup").hide();
+    $("#delete-popup").fadeOut();
     $(".overlay").hide();
   });
 
-  window.openVehicleDeletePopup = function (id) {
+  window.openVehicleDeletePopup = function (id, callback) {
     vehicleId = id;
-    $("#delete-popup").show();
+    loadVehicleTable = callback;
+    $("#delete-popup").fadeIn();
     $(".overlay").show();
   };
 });
