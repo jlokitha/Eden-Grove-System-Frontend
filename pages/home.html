@@ -12,6 +12,7 @@
     />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/pages/home.css" />
+    <link rel="stylesheet" href="/component/popup/css/passwordUpdatePoup.css" />
   </head>
   <body class="d-flex">
     <section class="d-flex flex-column align-items-center" id="navbar">
@@ -104,7 +105,10 @@
       </div>
 
       <div id="user-action">
-        <button class="nav-btn d-flex justify-content-left align-items-center">
+        <button
+          class="nav-btn d-flex justify-content-left align-items-center"
+          id="password-update-btn"
+        >
           <img
             src="/assets/icons/user-profile.svg"
             alt="User profile button icon in black color"
@@ -157,6 +161,74 @@
       ></iframe>
     </section>
 
+    <!-- Profile password update Popup -->
+    <div class="overlay"></div>
+    <section id="password-update-popup">
+      <div
+        class="title-container d-flex justify-content-between align-items-center"
+      >
+        <h1>Update Password</h1>
+        <button class="close-btn">
+          <img
+            src="/assets/icons/cancel-grey.svg"
+            alt="Close svg in grey color"
+          />
+        </button>
+      </div>
+
+      <div
+        class="detail-container d-flex justify-content-start align-items-center"
+      >
+        <div class="d-flex justify-content-start">
+          <img src="/assets/icons/profile-update.svg" alt="" />
+          <div class="d-flex flex-column justify-content-center">
+            <p class="lbl" id="name-lbl">Janindu Lokitha</p>
+            <p class="lbl" id="email-lbl">janindulokitha@gmail.com</p>
+            <p class="lbl" id="designation-lbl">Manager</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="main-content">
+        <div class="input d-flex align-items-center">
+          <div class="d-flex justify-content-center align-items-center">
+            <input
+              type="password"
+              placeholder="New Password"
+              required
+              id="new-password"
+              oninput="this.setCustomValidity('')"
+            />
+            <img
+              class="visibility-toggle"
+              src="/assets/icons/eye-close.svg"
+              alt="eye close icon"
+            />
+          </div>
+        </div>
+        <div class="input d-flex align-items-center">
+          <div class="d-flex justify-content-center align-items-center">
+            <input
+              type="password"
+              placeholder="Comfirm Password"
+              required
+              id="comfirm-password"
+              oninput="this.setCustomValidity('')"
+            />
+            <img
+              class="visibility-toggle"
+              src="/assets/icons/eye-close.svg"
+              alt="eye close icon"
+            />
+          </div>
+        </div>
+
+        <div class="button-container d-flex justify-content-end">
+          <button type="submit">Update</button>
+        </div>
+      </form>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -168,5 +240,9 @@
       crossorigin="anonymous"
     ></script>
     <script type="module" src="/controller/pages/HomeController.js"></script>
+    <script
+      type="module"
+      src="/component/popup/js/PasswordUpdatePopup.js"
+    ></script>
   </body>
 </html>

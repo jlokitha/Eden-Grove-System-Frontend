@@ -81,6 +81,10 @@ $(document).ready(function () {
     window.location.href = "/index.html";
   });
 
+  $("#password-update-btn").on("click", function () {
+    window.openPasswordUpdatePopup();
+  });
+
   function getStaffInfo() {
     findStaffByToken()
       .then((staff) => {

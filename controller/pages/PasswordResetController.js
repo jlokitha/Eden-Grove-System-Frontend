@@ -27,8 +27,6 @@ $(document).ready(function () {
     const passwordRegex =
       /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])(?=[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]*$).{6,}$/;
 
-    console.log(password, confirmPassword, passwordRegex.test(password));
-
     $(
       'input[placeholder="New Password"], input[placeholder="Confirm Password"]'
     ).each(function () {

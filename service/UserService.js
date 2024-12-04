@@ -1,7 +1,7 @@
-export function updateUser(userData) {
+export function updateUser(email, userData) {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: `http://localhost:5055/greenshadow/api/v1/user`,
+      url: `http://localhost:5055/greenshadow/api/v1/user/${email}`,
       type: "PUT",
       contentType: "application/json",
       data: JSON.stringify(userData),
