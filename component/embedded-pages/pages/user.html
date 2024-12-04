@@ -17,24 +17,29 @@
   <body>
     <section id="filter-container">
       <div class="d-flex justify-content-between">
-        <h1>Staff</h1>
-        <select id="designation-selector">
-          <option disabled selected>Role</option>
-          <option value="MANAGER">MANAGER</option>
-          <option value="SENIOR_ASSISTANT_MANAGER">
-            SENIOR_ASSISTANT_MANAGER
-          </option>
-          <option value="ASSISTANT_MANAGER">ASSISTANT_MANAGER</option>
-          <option value="ADMIN_AND_HR_STAFF">ADMIN_AND_HR_STAFF</option>
-          <option value="OFFICE_ASSISTANT">OFFICE_ASSISTANT</option>
-          <option value="SENIOR_AGRONOMIST">SENIOR_AGRONOMIST</option>
-          <option value="AGRONOMIST">AGRONOMIST</option>
-          <option value="SOIL_SCIENTIST">SOIL_SCIENTIST</option>
-          <option value="SENIOR_TECHNICIAN">SENIOR_TECHNICIAN</option>
-          <option value="TECHNICIAN">TECHNICIAN</option>
-          <option value="SUPERVISOR">SUPERVISOR</option>
-          <option value="LABOR">LABOR</option>
-        </select>
+        <h1>User</h1>
+        <div>
+          <select id="role-selector">
+            <option value="ALL" selected>Role</option>
+            <option value="MANAGER">MANAGER</option>
+            <option value="SENIOR_ASSISTANT_MANAGER">
+              SENIOR_ASSISTANT_MANAGER
+            </option>
+            <option value="ASSISTANT_MANAGER">ASSISTANT_MANAGER</option>
+            <option value="ADMIN_AND_HR_STAFF">ADMIN_AND_HR_STAFF</option>
+            <option value="OFFICE_ASSISTANT">OFFICE_ASSISTANT</option>
+            <option value="SENIOR_AGRONOMIST">SENIOR_AGRONOMIST</option>
+            <option value="AGRONOMIST">AGRONOMIST</option>
+            <option value="SOIL_SCIENTIST">SOIL_SCIENTIST</option>
+            <option value="SENIOR_TECHNICIAN">SENIOR_TECHNICIAN</option>
+            <option value="TECHNICIAN">TECHNICIAN</option>
+            <option value="SUPERVISOR">SUPERVISOR</option>
+            <option value="LABOR">LABOR</option>
+          </select>
+          <button class="clear-filter">
+            <img src="/assets/icons/reset-filter.svg" alt="clear all icon" />
+          </button>
+        </div>
       </div>
     </section>
 
@@ -50,24 +55,7 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr data-id="1">
-              <td>John Doe</td>
-              <td>MANAGER</td>
-              <td>john.doe@example.com</td>
-              <td>MANAGER</td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </section>

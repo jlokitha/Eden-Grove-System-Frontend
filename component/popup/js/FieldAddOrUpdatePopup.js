@@ -14,6 +14,10 @@ $(document).ready(function () {
   $(".close-btn").click(function () {
     $("#staff-dpd").empty();
     $("#equipment-dpd").empty();
+    $("#staff-count").text(`Staff: 0`);
+    $("#equipment-count").text(`Equipments: 0`);
+    selectedEquipmentIds = [];
+    selectedStaffIds = [];
     $("#field-add-or-update-popup").fadeOut();
     $(".overlay").hide();
     clearFieldData();
