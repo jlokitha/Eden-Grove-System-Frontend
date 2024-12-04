@@ -57,7 +57,7 @@ $(document).ready(function () {
       $(".equipment-lbl").show();
       $("#equipment-tag-container").show();
 
-      const tagContainer = $("#crop-tag-container");
+      const tagContainer = $("#equipment-tag-container");
       details.equipments.forEach((equipment) => {
         const p = $("<p></p>").text(`${equipment.name}`);
         tagContainer.append(p);

@@ -12,20 +12,19 @@ export function signUp(signUpData) {
         console.error("Error:", error);
         console.error("Status:", xhr.status);
 
-        let errorMessage = "An unexpected error occurred. Please try again.";
+        let errorMessage = "An unexpected error occurred. Please try again";
         switch (xhr.status) {
           case 400:
-            errorMessage = "Invalid OTP provided. Please try again.";
+            errorMessage = "Invalid OTP provided. Please try again";
             break;
           case 409:
-            errorMessage = "User already exists. Please try logging in.";
+            errorMessage = "User already exists. Please try logging in";
             break;
           case 404:
-            errorMessage = "Staff not found. Please contact support.";
+            errorMessage = "Staff not found. Please contact support";
             break;
-          case 500:
-            errorMessage =
-              "An error occurred on the server. Please try again later.";
+          case 406:
+            errorMessage = "Staff not acceptable";
             break;
         }
         reject(new Error(errorMessage));
