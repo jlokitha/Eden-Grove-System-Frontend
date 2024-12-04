@@ -1,5 +1,6 @@
 #vehicle-view-popup {
   min-width: 500px;
+  max-width: 600px;
   background: #fff;
   padding: 15px 15px 0 15px;
   border-radius: 10px;

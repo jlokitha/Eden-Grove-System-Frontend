@@ -1,5 +1,4 @@
-import { findAllStaff } from "../../../service/StaffService.js";
-import { filterAllStaff } from "../../../service/StaffService.js";
+import { findAllStaff, filterAllStaff } from "../../../service/StaffService.js";
 
 $(document).ready(function () {
   let pageNo = 0;
@@ -34,7 +33,6 @@ $(document).ready(function () {
         .then((response) => {
           if (response.length === 0) {
             hasMorePosts = false; // No more posts to load
-            alert("No more posts to load");
           } else {
             displayStaffData(response);
             pageNo++; // Increment the page number for the next request
@@ -152,20 +150,35 @@ $(document).ready(function () {
     $(this).find("img").attr("src", "/assets/icons/delete.svg");
   });
 
-  // Add click event to buttons
-  staffTableBody.on("click", ".view-btn", function () {
-    const staffId = getStaffId(this);
-    window.showStaffDetailsPopup(staffId);
+  // Delegate hover effect to buttons using event delegation
+  staffTableBody.on("mouseenter", ".view-btn", function () {
+    $(this).css("background", "#D0E3FF");
+    $(this).find("img").attr("src", "/assets/icons/eye-open-color.svg");
   });
 
-  staffTableBody.on("click", ".update-btn", function () {
-    const staffId = getStaffId(this);
-    window.openStaffAddOrUpdatePopup(staffId, refreshStaffTable);
+  staffTableBody.on("mouseleave", ".view-btn", function () {
+    $(this).css("background", "#f9f9f9");
+    $(this).find("img").attr("src", "/assets/icons/eye-open.svg");
   });
 
-  staffTableBody.on("click", ".delete-btn", function () {
-    const staffId = getStaffId(this);
-    window.openStaffDeletePopup(staffId, refreshStaffTable);
+  staffTableBody.on("mouseenter", ".update-btn", function () {
+    $(this).css("background", "#DEFFEC");
+    $(this).find("img").attr("src", "/assets/icons/update-color.svg");
+  });
+
+  staffTableBody.on("mouseleave", ".update-btn", function () {
+    $(this).css("background", "#f9f9f9");
+    $(this).find("img").attr("src", "/assets/icons/update.svg");
+  });
+
+  staffTableBody.on("mouseenter", ".delete-btn", function () {
+    $(this).css("background", "#FFE0E0");
+    $(this).find("img").attr("src", "/assets/icons/delete-color.svg");
+  });
+
+  staffTableBody.on("mouseleave", ".delete-btn", function () {
+    $(this).css("background", "#f9f9f9");
+    $(this).find("img").attr("src", "/assets/icons/delete.svg");
   });
 
   $(".search").on("click", function () {
