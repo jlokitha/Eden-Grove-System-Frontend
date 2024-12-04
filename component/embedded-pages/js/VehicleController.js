@@ -234,7 +234,7 @@ $(document).ready(function () {
   // Clear filter
   function clearFilter() {
     $("#category-search").val("");
-    $("#status-dp").val("ALL");
+    $("#status-dp").val("Available");
   }
 
   // Helper function to get staff ID

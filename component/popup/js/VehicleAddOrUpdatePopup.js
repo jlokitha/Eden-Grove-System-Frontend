@@ -27,13 +27,13 @@ $(document).ready(function () {
       $("#btn-save").hide();
       $("#btn-update").show();
       loadVehicleData(vehicleId);
-      $("#vehicle-add-or-update-popup").show();
+      $("#vehicle-add-or-update-popup").fadeIn();
       $(".overlay").show();
     } else {
       $("#vehicle-add-or-update-popup .title-container h1").text("Add Vehicle");
       $("#btn-save").show();
       $("#btn-update").hide();
-      $("#vehicle-add-or-update-popup").show();
+      $("#vehicle-add-or-update-popup").fadeIn();
       $(".overlay").show();
     }
   };
@@ -85,12 +85,6 @@ $(document).ready(function () {
   // Function to show staff details in the select
   $("#staff-dp").select2();
 
-  $("#staff-dp").on("select2:open", function () {
-    $(".select2-search__staff").on("input", function () {
-      console.log("Input value:", $(this).val());
-    });
-  });
-
   function clearVehicleData() {
     $("#license-plate-in").val("");
     $("#category-in").val("");
@@ -105,7 +99,6 @@ $(document).ready(function () {
 
 function setValuesToStaffDp(staff) {
   if (!staff) return;
-
   $("#staff-dp").val(staff.id).trigger("change");
 }
 

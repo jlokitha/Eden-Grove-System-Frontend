@@ -47,10 +47,13 @@
               <option value="AVAILABLE">Available</option>
               <option value="OUT_OF_SERVICE">Out of Service</option>
               <option value="IN_USE">In Use</option>
-              <option value="UNDER_MANITENANCE">Under Maintenance</option>
+              <option value="UNDER_MAINTENANCE">Under Maintenance</option>
             </select>
           </div>
           <button class="search">Search</button>
+          <button class="clear-filter">
+            <img src="/assets/icons/reset-filter.svg" alt="clear all icon" />
+          </button>
         </div>
         <button class="btn-add" id="btn-equipment-add">Add Equipment</button>
       </div>
@@ -67,116 +70,7 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
-            <tr data-id="1">
-              <td>Tractor Engine</td>
-              <td>MECHANICAL</td>
-              <td class="d-flex justify-content-center">
-                <p class="available-tag">Available</p>
-              </td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="2">
-              <td>Tractor Engine</td>
-              <td>MECHANICAL</td>
-              <td class="d-flex justify-content-center">
-                <p class="out-of-service-tag">Out of Service</p>
-              </td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="3">
-              <td>Tractor Engine</td>
-              <td>MECHANICAL</td>
-              <td class="d-flex justify-content-center">
-                <p class="in-use-tag">In Use</p>
-              </td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr data-id="4">
-              <td>Tractor Engine</td>
-              <td>MECHANICAL</td>
-              <td class="d-flex justify-content-center">
-                <p class="under-maintenance-tag">Under Maintenance</p>
-              </td>
-              <td>
-                <div class="action-container d-flex">
-                  <button class="view-btn">
-                    <img
-                      src="/assets/icons/eye-open.svg"
-                      alt="Eye open svg in grey color"
-                    /></button
-                  ><button class="update-btn">
-                    <img
-                      src="/assets/icons/update.svg"
-                      alt="Update svg in grey color"
-                    /></button
-                  ><button class="delete-btn">
-                    <img
-                      src="/assets/icons/delete.svg"
-                      alt="Delete svg in grey color"
-                    />
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </section>
@@ -200,45 +94,41 @@
           class="wrapper d-flex justify-content-between align-items-center mb-3"
         >
           <div class="detail-container d-flex flex-column">
-            <label class="lbl">Vehicle Code</label>
+            <label class="lbl">Equipment Code</label>
             <label id="lbl-code"></label>
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl">License Plate No</label>
-            <label id="lbl-license-plate-no"></label>
+            <label id="lbl-status"></label>
           </div>
         </div>
         <div
           class="wrapper d-flex justify-content-between align-items-center mb-3"
         >
           <div class="detail-container d-flex flex-column">
-            <label class="lbl">Category</label>
-            <label id="lbl-category"></label>
+            <label class="lbl">Equipment Name</label>
+            <label id="lbl-name"></label>
           </div>
           <div class="detail-container d-flex flex-column">
-            <label class="lbl">Fuel Type</label>
-            <label id="lbl-fuel-type"></label>
-          </div>
-        </div>
-        <div
-          class="wrapper d-flex justify-content-between align-items-center mb-3"
-        >
-          <div class="detail-container d-flex flex-column">
-            <label class="lbl">Remark</label>
-            <label id="lbl-remark"></label>
+            <label class="lbl">Type</label>
+            <label id="lbl-type"></label>
           </div>
         </div>
         <div
           class="wrapper d-flex justify-content-between align-items-center mb-3"
         >
           <div class="detail-container d-flex flex-column flex-wrap">
-            <label class="lbl">Staff</label>
+            <label class="lbl staff-lbl">Staff</label>
             <div
+              id="staff-tag-container"
               class="tag-container d-flex justify-content-start align-items-center mt-2"
             ></div>
           </div>
-          <div class="detail-container d-flex flex-column">
-            <label id="lbl-status"></label>
+          <div class="detail-container d-flex flex-column flex-wrap">
+            <label class="lbl field-lbl">Field</label>
+            <div
+              id="field-tag-container"
+              class="tag-container d-flex justify-content-start align-items-center mt-2"
+            ></div>
           </div>
         </div>
       </div>
@@ -263,11 +153,11 @@
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
             <label class="lbl">Equipment Name</label>
-            <input type="text" id="license-plate-in" />
+            <input type="text" id="equipemnt-name-in" required />
           </div>
           <div class="detail-container d-flex flex-column">
             <label class="lbl">Type</label>
-            <select name="status-selector" id="dp-type">
+            <select name="status-selector" id="dp-type" required>
               <option value="ALL" selected>All</option>
               <option value="MECHANICAL">Mechanical</option>
               <option value="ELECTRICAL">Electrical</option>
@@ -279,11 +169,11 @@
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
             <label class="lbl">Status</label>
-            <select id="dp-status">
+            <select id="dp-status" required>
               <option value="AVAILABLE">Available</option>
               <option value="OUT_OF_SERVICE">Out of Service</option>
               <option value="IN_USE">In Use</option>
-              <option value="UNDER_MANITENANCE">Under Maintenance</option>
+              <option value="UNDER_MAINTENANCE">Under Maintenance</option>
             </select>
           </div>
         </div>
@@ -292,17 +182,11 @@
         <div class="wrapper d-flex justify-content-between align-items-center">
           <div class="detail-container d-flex flex-column">
             <label class="lbl mb-2">Staff</label>
-            <select id="staff-dp">
-              <option disabled selected>Staff</option>
-              <option value="">Staff 1</option>
-            </select>
+            <select id="staff-dp"></select>
           </div>
           <div class="detail-container d-flex flex-column">
             <label class="lbl mb-2">Field</label>
-            <select id="field-dp">
-              <option disabled selected>Field</option>
-              <option value="">Field 1</option>
-            </select>
+            <select id="field-dp"></select>
           </div>
         </div>
 
