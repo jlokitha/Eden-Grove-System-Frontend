@@ -1,0 +1,137 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.top-container {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.count-card {
+  min-height: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.05);
+}
+
+.count-card .icon-container {
+  height: 60px;
+  width: 60px;
+  background: var(--color-primary-bg);
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.count-card .text-wrapper p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.count-card .line {
+  width: 100%;
+  height: 4px;
+  border-radius: 5px;
+  background: var(--color-primary);
+}
+
+.count-card .text-wrapper h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.bottom-container {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1.4fr 1.5fr 1.1fr;
+  margin-top: 30px;
+}
+
+.side-card-container {
+  max-height: calc(100vh - 150px);
+  overflow: hidden;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  scrollbar-width: none;
+  align-content: start;
+  padding-bottom: 10px;
+}
+
+.side-card-container h2 {
+  font-size: 1.3rem;
+  position: sticky;
+  padding-bottom: 5px;
+  top: 0;
+  background: var(--color-light);
+}
+
+.side-card-container .horizontal-card {
+  width: 100%;
+  height: 90px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.horizontal-card img {
+  max-height: 100%;
+  min-height: 100%;
+  max-width: 120px;
+  min-width: 120px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.text-container {
+  margin-right: 10px;
+  width: 100%;
+}
+
+.horizontal-card label {
+  font-size: 0.9rem;
+}
+
+.horizontal-card .card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.horizontal-card .card-text {
+  font-style: italic;
+  margin-bottom: 3px;
+}
+
+.count-container {
+  width: 100%;
+}
+
+.open-log-view {
+  min-width: 60px;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: var(--color-light);
+}
+
+.open-log-view img {
+  min-height: 20px;
+  min-width: 20px;
+  object-fit: cover;
+  margin-right: 0;
+}
+
+.open-log-view:hover {
+  background: var(--color-hover-bg);
+}
+
+.field-name {
+  font-style: normal;
+}
