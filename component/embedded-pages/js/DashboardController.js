@@ -21,9 +21,9 @@ $(document).ready(function () {
     const obj = await getCountOfEntities();
 
     $("#staff-count").text(obj.staffCount);
-    $("#vehicle-count").text(obj.fieldCount);
-    $("#field-count").text(obj.cropCount);
-    $("#crop-count").text(obj.vehicleCount);
+    $("#vehicle-count").text(obj.vehicleCount);
+    $("#field-count").text(obj.fieldCount);
+    $("#crop-count").text(obj.cropCount);
   }
 
   async function loadFieldList() {

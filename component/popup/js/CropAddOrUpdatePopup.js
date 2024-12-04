@@ -97,7 +97,6 @@ $(document).ready(function () {
     }
 
     if (currentCropId) {
-      alert("Updating crop");
       await updateCrop(currentCropId, formData);
     } else {
       await saveCrop(formData);

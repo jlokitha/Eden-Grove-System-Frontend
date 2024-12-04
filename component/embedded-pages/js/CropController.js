@@ -64,7 +64,7 @@ $(document).ready(function () {
   function hideActionButtons() {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user.role === "ADMINISTRATIVE") {
-      fieldAddBtn.hide();
+      cropAddBtn.hide();
       $(".button-container .btn-update").hide();
       $(".card .btn-delete").hide();
     }

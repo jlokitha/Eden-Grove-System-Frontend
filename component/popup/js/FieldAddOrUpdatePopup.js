@@ -1,4 +1,5 @@
 import { findAllStaff } from "../../../service/StaffService.js";
+import { findAllEquipment } from "../../../service/EquipmentService.js";
 import {
   saveField,
   findFieldById,
@@ -29,7 +30,7 @@ $(document).ready(function () {
     $("#staff-dpd").empty();
     $("#equipment-dpd").empty();
     loadStaffData();
-    // loadEquipmentData();
+    loadEquipmentData();
     if (fieldId) {
       currentFieldId = fieldId;
       $("#field-add-or-update-popup .title-container h1").text("Update Field");
@@ -341,14 +342,29 @@ function getGoogleMapsUrl(locationString) {
 // Load data for the staff dropdown
 function loadStaffData() {
   findAllStaff().then((staffList) => {
-    const staffDropdown = $("#staff-dpd");
-    staffDropdown.empty().append('<option value="">Select Staff</option>');
+    const equipmentDropdown = $("#staff-dpd");
+    equipmentDropdown.empty().append('<option value="">Select Staff</option>');
     staffList.forEach((staff) => {
       const option = $(
         `<option value="${staff.id}" data-id="${staff.id}">${staff.name}</option>`
       );
-      staffDropdown.append(option);
+      equipmentDropdown.append(option);
     });
-    staffDropdown.trigger("change"); // Refresh Select2 options
+    equipmentDropdown.trigger("change"); 
+  });
+}
+
+// Load data for the staff dropdown
+function loadEquipmentData() {
+  findAllEquipment().then((equipmentLisr) => {
+    const equipmentDropdown = $("#equipment-dpd");
+    equipmentDropdown.empty().append('<option value="">Select Equipment</option>');
+    equipmentLisr.forEach((equipment) => {
+      const option = $(
+        `<option value="${equipment.equipmentId}" data-id="${equipment.equipmentId}">${equipment.name}</option>`
+      );
+      equipmentDropdown.append(option);
+    });
+    equipmentDropdown.trigger("change"); 
   });
 }
