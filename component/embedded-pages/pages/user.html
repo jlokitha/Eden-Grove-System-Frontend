@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eden Grove</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/component/embedded-pages/css/user.css" />
+    <link rel="stylesheet" href="/component/popup/css/deletePopup.css" />
+  </head>
+  <body>
+    <section id="filter-container">
+      <div class="d-flex justify-content-between">
+        <h1>User</h1>
+        <div>
+          <select id="role-selector">
+            <option value="ALL" selected>Role</option>
+            <option value="MANAGER">MANAGER</option>
+            <option value="SENIOR_ASSISTANT_MANAGER">
+              SENIOR_ASSISTANT_MANAGER
+            </option>
+            <option value="ASSISTANT_MANAGER">ASSISTANT_MANAGER</option>
+            <option value="ADMIN_AND_HR_STAFF">ADMIN_AND_HR_STAFF</option>
+            <option value="OFFICE_ASSISTANT">OFFICE_ASSISTANT</option>
+            <option value="SENIOR_AGRONOMIST">SENIOR_AGRONOMIST</option>
+            <option value="AGRONOMIST">AGRONOMIST</option>
+            <option value="SOIL_SCIENTIST">SOIL_SCIENTIST</option>
+            <option value="SENIOR_TECHNICIAN">SENIOR_TECHNICIAN</option>
+            <option value="TECHNICIAN">TECHNICIAN</option>
+            <option value="SUPERVISOR">SUPERVISOR</option>
+            <option value="LABOR">LABOR</option>
+          </select>
+          <button class="clear-filter">
+            <img src="/assets/icons/reset-filter.svg" alt="clear all icon" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="main-content">
+      <div id="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Staff Name</th>
+              <th scope="col">Designation</th>
+              <th scope="col">Email</th>
+              <th scope="col">Role</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- delete popup -->
+    <section id="delete-popup">
+      <div class="d-flex flex-column align-items-center">
+        <span class="d-flex justify-content-center align-items-center"
+          ><img src="/assets/icons/warning.svg" alt="Warning icon in red color"
+        /></span>
+        <h1>Are you sure?</h1>
+        <p class="text-center">
+          Are you sure you want to delete this record? <br />
+          This process cannot be undone.
+        </p>
+      </div>
+      <div class="button-container d-flex justify-content-between">
+        <button type="submit" id="btn-cancel">Cancel</button>
+        <button type="submit" id="btn-delete">Delete</button>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="/component/embedded-pages/js/UserController.js"
+    ></script>
+    <script type="module" src="/component/popup/js/UserDeletepopup.js"></script>
+  </body>
+</html>

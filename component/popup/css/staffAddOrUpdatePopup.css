@@ -1,0 +1,101 @@
+#staff-add-or-update-popup {
+  min-width: 650px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - 100px), calc(-50%));
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  display: none;
+}
+
+#staff-add-or-update-popup .title-container {
+  border: none;
+  padding: 0;
+}
+
+.wrapper {
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.main-content h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.main-content input,
+select {
+  max-width: 300px;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  border-bottom: 1px solid #727374;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.select2-selection--single {
+  height: 40px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #727374 !important;
+  margin-top: 3px;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  display: none !important;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  line-height: 40px !important;
+}
+
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  height: 42px !important;
+}
+
+.select2-results__option--selectable {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 0.9rem !important;
+}
+
+.select2-container--default
+  .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: var(--color-primary) !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.button-container {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.button-container button {
+  width: 120px;
+  height: 40px;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+}
+
+.button-container button:hover {
+  opacity: 0.8;
+}
+
+#btn-update {
+  display: none;
+}

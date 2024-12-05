@@ -1,0 +1,151 @@
+#field-add-or-update-popup {
+  min-width: 600px;
+  max-width: 600px;
+  max-height: 500px;
+  background: #fff;
+  padding: 0 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - 100px), calc(-50%));
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  scrollbar-width: none;
+  display: none;
+}
+
+#field-add-or-update-popup::-webkit-scrollbar {
+  display: none;
+}
+
+#field-add-or-update-popup .title-container {
+  border: none;
+  padding: 20px 0 0 0;
+  position: sticky;
+  top: 0;
+  background: var(--color-light);
+  z-index: 1001;
+}
+
+.wrapper {
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.selector-wrapper {
+  align-items: start !important;
+}
+
+.detail-container {
+  width: 100%;
+}
+
+.image-1-container,
+.image-2-container {
+  width: 100%;
+  border: 3px dashed var(--color-secondary-text-color);
+  border-radius: 10px;
+  padding: 40px 10px;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.image-selector-1,
+.image-selector-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: none;
+}
+
+.image-icon {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+  object-fit: cover;
+}
+
+.image-1-container > p,
+.image-2-container > p {
+  font-size: 0.8rem;
+  margin: 0;
+  color: var(--color-secondary-text-color);
+}
+
+.main-content h3 {
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.main-content input,
+select {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  padding: 10px;
+  border-bottom: 1px solid #727374;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.select2-selection--multiple {
+  min-height: 40px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #727374 !important;
+  margin-top: 3px;
+}
+
+.select2-results__option--selectable {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 0.9rem !important;
+}
+
+.select2-container--default
+  .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: var(--color-primary) !important;
+}
+
+#field-add-or-update-popup .popup-button-container {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  position: sticky;
+  bottom: 0;
+  background: var(--color-light);
+}
+
+.popup-button-container button {
+  width: 120px;
+  height: 40px;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+}
+
+.popup-button-container button:hover {
+  opacity: 0.8;
+}
+
+#btn-update {
+  display: none;
+}
+
+.count-tag {
+  font-size: 0.8rem;
+  background: var(--color-tag-bg);
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 0;
+  margin-bottom: 3px;
+  width: fit-content;
+}
