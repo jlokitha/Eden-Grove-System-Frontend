@@ -9,25 +9,7 @@ export function signUp(signUpData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error:", error);
-        console.error("Status:", xhr.status);
-
-        let errorMessage = "An unexpected error occurred. Please try again";
-        switch (xhr.status) {
-          case 400:
-            errorMessage = "Invalid OTP provided. Please try again";
-            break;
-          case 409:
-            errorMessage = "User already exists. Please try logging in";
-            break;
-          case 404:
-            errorMessage = "Staff not found. Please contact support";
-            break;
-          case 406:
-            errorMessage = "Staff not acceptable";
-            break;
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -44,24 +26,7 @@ export function signIn(signInData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error:", error);
-        console.error("Status:", xhr.status);
-
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        switch (xhr.status) {
-          case 404:
-            errorMessage =
-              "User not found. Please check your email or sign up.";
-            break;
-          case 400:
-            errorMessage = "Invalid credentials. Please try again.";
-            break;
-          case 500:
-            errorMessage =
-              "An internal server error occurred. Please try again later.";
-            break;
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -79,23 +44,7 @@ export function resetPassword(resetPasswordData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error:", error);
-        console.error("Status:", xhr.status);
-
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        switch (xhr.status) {
-          case 400:
-            errorMessage = "Invalid OTP provided. Please try again.";
-            break;
-          case 404:
-            errorMessage = "User not found for the given email.";
-            break;
-          case 500:
-            errorMessage =
-              "An error occurred on the server. Please try again later.";
-            break;
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -111,21 +60,7 @@ export function requestOtp(email) {
       console.log("OTP requested successfully:", response);
     },
     error: function (xhr, error) {
-      console.error("Error:", error);
-      console.error("Status:", xhr.status);
-
-      switch (xhr.status) {
-        case 404:
-          alert("User not found. Please ensure the email is correct.");
-          break;
-        case 500:
-          alert(
-            "An error occurred while sending the OTP. Please try again later."
-          );
-          break;
-        default:
-          alert("An unexpected error occurred. Please try again.");
-      }
+      alert(xhr.responseJSON.message);
     },
   });
 }
@@ -140,16 +75,7 @@ export function refreshToken(token) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error:", error);
-        console.error("Status:", xhr.status);
-
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = "User not found for refresh token request.";
-        } else {
-          errorMessage = "Failed to refresh the token. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });

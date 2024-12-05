@@ -61,11 +61,7 @@ export function findVehicleById(id) {
         resolve(response);
       },
       error: function (xhr, error) {
-        let errorMessage = "An unexpected error occurred. Please try again!";
-        if (xhr.status === 404) {
-          errorMessage = "Vehicle not found";
-        }
-        alert(errorMessage);
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -82,7 +78,7 @@ export function findAllVehicle(page, size) {
         resolve(response);
       },
       error: function (xhr, status, error) {
-        console.error("Error fetching Vehicles:", error);
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -100,7 +96,7 @@ export function filterAllVehicle(filterData) {
         resolve(response);
       },
       error: function (xhr, status, error) {
-        console.error("Error fetching Vehicles:", error);
+        alert(xhr.responseJSON.message);
       },
     });
   });

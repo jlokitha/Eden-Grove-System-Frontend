@@ -146,8 +146,8 @@ $(document).ready(function () {
   function clearStaffData() {
     $("#first-name").val("");
     $("#last-name").val("");
-    $("#gender-dpd").val("").trigger("change");
-    $("#designation-dpd").val("").trigger("change");
+    $("#gender-dpd").val("ALL");
+    $("#designation-dpd").val("ALL");
     $("#dob").val("");
     $("#address").val("");
     $("#postal-code").val("");

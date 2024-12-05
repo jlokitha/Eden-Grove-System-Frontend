@@ -7,8 +7,8 @@ import {
 } from "../../../service/EquipmentService.js";
 
 $(document).ready(function () {
-  let currentEquipmentId;
-  let loadEquipmentTable;
+  let currentEquipmentId = null;
+  let reloadEquipmentTable = null;
 
   $(".close-btn").click(function () {
     $("#equipment-add-or-update-popup").fadeOut();
@@ -18,7 +18,7 @@ $(document).ready(function () {
 
   // Function to open the staff add or update popup
   window.openEquipmentAddOrUpdatePopup = function (equipmentId, callback) {
-    loadEquipmentTable = callback;
+    reloadEquipmentTable = callback;
     loadStaffData();
     loadFieldData();
     if (equipmentId) {
@@ -78,7 +78,9 @@ $(document).ready(function () {
     } else {
       await saveEquipment(equipmentDto);
     }
-    loadEquipmentTable();
+    setTimeout(() => {
+      reloadEquipmentTable();
+    }, 1000);
     $("#equipment-add-or-update-popup").fadeOut();
     $(".overlay").hide();
     clearEquipmentData();
@@ -95,7 +97,6 @@ $(document).ready(function () {
     $("#staff-dp").val("").trigger("change");
     $("#field-dp").val("").trigger("change");
     currentEquipmentId = null;
-    loadEquipmentTable = null;
   }
 });
 

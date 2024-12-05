@@ -69,11 +69,7 @@ export function findLogById(id) {
         resolve(response);
       },
       error: function (xhr) {
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = "Log not found with the provided token.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -90,11 +86,7 @@ export function findAllLog(page) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error fetching Log:", error);
-        let errorMessage =
-          xhr.responseJSON?.message ||
-          "An unexpected error occurred. Please try again.";
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -112,12 +104,7 @@ export function filterLogs(filterData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error filtering Logs:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 500) {
-          errorMessage = "Failed to filter Logs. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });

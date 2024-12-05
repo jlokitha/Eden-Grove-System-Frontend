@@ -62,11 +62,13 @@ $(document).ready(function () {
         >
           <img src="data:image/png;base64,${log.observedImage}" alt="" />
           <div class="text-container d-flex flex-column">
-            <label class="card-title">${log.logCode}</label>
-            <label class="card-text">${new Date(log.logDate)
+            <label class="card-title wrap-text">${log.logCode}</label>
+            <label class="card-text wrap-text">${new Date(log.logDate)
               .toISOString()
               .slice(0, 10)}</label>
-            <label class="field-name">Field: ${log.field.fieldName}</label>
+            <label class="field-name wrap-text">Field: ${
+              log.field.fieldName
+            }</label>
           </div>
           
         </div>

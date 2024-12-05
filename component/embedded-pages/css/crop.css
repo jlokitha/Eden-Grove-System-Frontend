@@ -132,6 +132,14 @@ body {
   font-size: 0.9rem;
 }
 
+.wrap-text {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
 .button-container {
   width: 100%;
   margin-top: 10px;

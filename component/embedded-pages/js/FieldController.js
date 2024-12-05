@@ -87,8 +87,8 @@ $(document).ready(function () {
                 <img src="/assets/icons/cancel-grey.svg" alt="" />
               </button>
               <div class="card-body">
-                <h5 class="card-title">${field.fieldName}</h5>
-                <p class="card-text">${field.fieldSize} Sq.mt</p>
+                <h5 class="card-title wrap-text">${field.fieldName}</h5>
+                <p class="card-text wrap-text">${field.fieldSize} Sq.mt</p>
                 <div class="location-url d-flex align-items-center">
                   <a href="${generateGoogleMapsLink(
                     field.fieldLocation

@@ -52,7 +52,7 @@ export function deleteCrop(id) {
         if (xhr.status === 404) {
           errorMessage = `Crop with ID ${id} not found.`;
         }
-        alert(errorMessage);
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -73,7 +73,7 @@ export function findCropById(id) {
         if (xhr.status === 404) {
           errorMessage = "Crop not found with the provided token.";
         }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -90,11 +90,7 @@ export function findAllCrop(page) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error fetching crops:", error);
-        let errorMessage =
-          xhr.responseJSON?.message ||
-          "An unexpected error occurred. Please try again.";
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -112,12 +108,7 @@ export function filterCrops(filterData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error filtering Crops:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 500) {
-          errorMessage = "Failed to filter Crops. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -133,11 +124,7 @@ export function findCropOfField(fieldId) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error fetching staff:", error);
-        if (xhr.status === 404) {
-          errorMessage = "Field not found";
-        }
-        alert(errorMessage);
+        alert(xhr.responseJSON.message);
       },
     });
   });
