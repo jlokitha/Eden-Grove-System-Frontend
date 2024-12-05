@@ -6,8 +6,8 @@ import {
 import { findAllStaff } from "../../../service/StaffService.js";
 
 $(document).ready(function () {
-  let currentVehicleId;
-  let loadVehicleTable;
+  let currentVehicleId = null;
+  let loadVehicleTable = null;
 
   $(".close-btn").click(function () {
     $("#vehicle-add-or-update-popup").fadeOut();
@@ -76,7 +76,9 @@ $(document).ready(function () {
     } else {
       await saveVehicle(vehicleDto);
     }
-    loadVehicleTable();
+    setTimeout(() => {
+      loadVehicleTable();
+    }, 1000);
     $("#vehicle-add-or-update-popup").fadeOut();
     $(".overlay").hide();
     clearVehicleData();
@@ -89,11 +91,10 @@ $(document).ready(function () {
     $("#license-plate-in").val("");
     $("#category-in").val("");
     $("#fuel-type-dp").val("");
-    $("#staff-dp").val("").trigger("change");
+    $("#staff-dp").val("");
     $("#dp-status").val("");
     $("#remark-ta").val("");
     currentVehicleId = null;
-    loadVehicleTable = null;
   }
 });
 

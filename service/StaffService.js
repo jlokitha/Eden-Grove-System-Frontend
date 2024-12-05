@@ -10,14 +10,7 @@ export function saveStaff(staffData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error saving staff:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 400) {
-          errorMessage = "Email already exists for the staff member.";
-        } else if (xhr.status === 500) {
-          errorMessage = "Failed to persist staff data. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -35,16 +28,7 @@ export function updateStaff(staffData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error updating staff:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = "Staff not found with the provided ID.";
-        } else if (xhr.status === 400) {
-          errorMessage = "Email already exists for the staff member.";
-        } else if (xhr.status === 500) {
-          errorMessage = "Failed to persist staff data. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -60,14 +44,7 @@ export function deleteStaff(staffId) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error deleting staff:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = `Staff with ID ${staffId} not found.`;
-        } else if (xhr.status === 500) {
-          errorMessage = "Failed to delete staff data. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -83,11 +60,7 @@ export function findStaffByToken() {
         resolve(response);
       },
       error: function (xhr, error) {
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = "Staff not found with the provided token.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -104,11 +77,7 @@ export function findStaffById(id) {
         resolve(response);
       },
       error: function (xhr, error) {
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = "Staff not found with the provided token.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -125,11 +94,7 @@ export function findAllStaff(page, size) {
         resolve(response);
       },
       error: function (xhr, status, error) {
-        console.error("Error fetching staff:", error);
-        let errorMessage =
-          xhr.responseJSON?.message ||
-          "An unexpected error occurred. Please try again.";
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -147,11 +112,7 @@ export function filterAllStaff(filterData) {
         resolve(response);
       },
       error: function (xhr, status, error) {
-        console.error("Error fetching staff:", error);
-        let errorMessage =
-          xhr.responseJSON?.message ||
-          "An unexpected error occurred. Please try again.";
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });

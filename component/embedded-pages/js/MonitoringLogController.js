@@ -81,9 +81,11 @@ $(document).ready(function () {
                 log.observedImage
               }" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title">${log.logCode}</h5>
-                <p class="card-text">${extractDate(log.logDate)}</p>
-                <p class="card-text">Field : ${log.field.fieldName}</p>
+                <h5 class="card-title wrap-text">${log.logCode}</h5>
+                <p class="card-text wrap-text">${extractDate(log.logDate)}</p>
+                <p class="card-text wrap-text">Field : ${
+                  log.field.fieldName
+                }</p>
                 <div class="button-container d-flex">
                   <button class="btn-view">Learn More</button>
                   <button class="btn-update">

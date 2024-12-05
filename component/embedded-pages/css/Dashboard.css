@@ -45,6 +45,14 @@ body {
   font-weight: 600;
 }
 
+.wrap-text {
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
 .bottom-container {
   display: grid;
   gap: 40px;

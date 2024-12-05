@@ -61,11 +61,7 @@ export function findEquipmentById(id) {
         resolve(response);
       },
       error: function (xhr, error) {
-        let errorMessage = "An unexpected error occurred. Please try again!";
-        if (xhr.status === 404) {
-          errorMessage = "Equipment not found";
-        }
-        alert(errorMessage);
+        alert(xhr.responseJSON.message);
       },
     });
   });

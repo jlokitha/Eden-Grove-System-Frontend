@@ -26,12 +26,7 @@ export function deleteUser(userId) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error deleting User:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = `User with ID ${userId} not found.`;
-        }
-        alert(errorMessage);
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -48,7 +43,7 @@ export function findAllUser(page, size) {
         resolve(response);
       },
       error: function (xhr, status, error) {
-        console.error("Error fetching User:", error);
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -66,7 +61,7 @@ export function filterAllUser(filterData) {
         resolve(response);
       },
       error: function (xhr, status, error) {
-        console.error("Error fetching user:", error);
+        alert(xhr.responseJSON.message);
       },
     });
   });

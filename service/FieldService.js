@@ -11,9 +11,7 @@ export function saveField(formData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error saving field:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -32,14 +30,7 @@ export function updateField(fieldId, formData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error updating field:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = "Field not found with the provided ID.";
-        } else if (xhr.status === 500) {
-          errorMessage = "Failed to persist field data. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -55,14 +46,7 @@ export function deleteField(id) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error deleting staff:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = `Field with ID ${id} not found.`;
-        } else if (xhr.status === 500) {
-          errorMessage = "Failed to delete field data. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -79,11 +63,7 @@ export function findFieldById(id) {
         resolve(response);
       },
       error: function (xhr) {
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 404) {
-          errorMessage = "Field not found with the provided token.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -100,11 +80,7 @@ export function findAllField(page) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error fetching staff:", error);
-        let errorMessage =
-          xhr.responseJSON?.message ||
-          "An unexpected error occurred. Please try again.";
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });
@@ -122,12 +98,7 @@ export function filterFields(filterData) {
         resolve(response);
       },
       error: function (xhr, error) {
-        console.error("Error filtering fields:", error);
-        let errorMessage = "An unexpected error occurred. Please try again.";
-        if (xhr.status === 500) {
-          errorMessage = "Failed to filter fields. Please try again.";
-        }
-        reject(new Error(errorMessage));
+        alert(xhr.responseJSON.message);
       },
     });
   });

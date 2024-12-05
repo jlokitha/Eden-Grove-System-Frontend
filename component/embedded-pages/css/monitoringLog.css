@@ -117,12 +117,26 @@ body {
   position: relative;
 }
 
+.card-img-top {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
 .card-title {
   font-size: 1.2rem;
 }
 
 .card-text {
   margin: 0;
+}
+
+.wrap-text {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 
 .button-container {

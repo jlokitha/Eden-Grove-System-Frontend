@@ -102,7 +102,9 @@ $(document).ready(function () {
       await saveCrop(formData);
     }
 
-    loadCropPage();
+    setTimeout(() => {
+      loadCropPage();
+    }, 1000);
     clearCropData();
     $("#crop-add-or-update-popup").fadeOut();
     $(".overlay").hide();

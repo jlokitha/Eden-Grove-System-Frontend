@@ -79,9 +79,9 @@ $(document).ready(function () {
                 <img src="/assets/icons/cancel-grey.svg" alt="" />
               </button>
               <div class="card-body">
-                <h5 class="card-title">${crop.commonName}</h5>
-                <p class="card-text">${crop.scientificName}</p>
-                <p class="card-text">Season: ${crop.season}</p>
+                <h5 class="card-title wrap-text">${crop.commonName}</h5>
+                <p class="card-text wrap-text">${crop.scientificName}</p>
+                <p class="card-text wrap-text">Season: ${crop.season}</p>
                 <div class="button-container d-flex">
                   <button class="btn-view">Learn More</button>
                   <button class="btn-update">

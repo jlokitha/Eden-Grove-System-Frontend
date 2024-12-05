@@ -133,6 +133,14 @@ select {
   margin-bottom: 5px;
 }
 
+.wrap-text {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
 .location-url a {
   text-decoration: none;
   margin: 0;
