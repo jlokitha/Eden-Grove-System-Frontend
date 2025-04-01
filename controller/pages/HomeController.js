@@ -97,7 +97,7 @@ $(document).ready(function () {
 
   function setStaffInfo() {
     getStaffInfo();
-    const staff = JSON.parse(localStorage.getItem("staff"));
+    const staff = JSON.parse(localStorage.getItem("user"));
     $("#user-info .name").text(staff.name);
     $("#user-info .role").text(staff.role);
     $("#text-container .name").text(staff.name);
